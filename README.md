@@ -24,11 +24,8 @@ sudo apt-get install python3.8-venv
 #### - Servidor SMTP
 Tener un servidor SMTP *(Simple Mail Transfer Protocol)* el cual es un protocolo básico que permite que los emails viajen a través de Internet. 
 
-```
-
 
 ### Instalación con pip 
-
 ```bash
 python3.8 -m venv .reporte
 source .reporte/bin/activate
