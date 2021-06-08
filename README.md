@@ -4,8 +4,8 @@
 
 Rutina realizada para enviar reportes de sismicidad. Esta basado en web scraping. 
 
-La rutina funciona únicamente si el siguiente link funciona bien:
-[a link](http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Seiscomp/consultaexperta.php)
+La rutina funciona para las fechas donde funciona seiscomp y únicamente si el siguiente link funciona bien:
+[SGC-Catalogo](http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Seiscomp/consultaexperta.php)
 
 ## 1. Instalación en linux
 
