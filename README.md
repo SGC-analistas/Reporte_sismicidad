@@ -1,6 +1,6 @@
 ![SGC](images/sgc_logo.png)<!-- .element width="700"-->
 
-# SGC_noche 
+# Reporte de sismicidad
 
 Rutina realizada para enviar reportes de sismicidad. Esta basado en web scraping. 
 
