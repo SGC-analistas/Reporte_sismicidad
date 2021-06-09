@@ -208,7 +208,7 @@ class SquareQuery(object):
             driver.save_screenshot(os.path.join(download_folder,'Reporte_Sismicidad.png'))
             # print("png   ################################ 100% \n")
             printlog("info","png","ok")
-        
+        driver.close()
         resultados = {"sismos":result,"fecha_inicial":starttime,"fecha_final":endtime}
 
         filepaths = mv_downloaded_files(download_folder)
@@ -320,7 +320,7 @@ class RadialQuery(object):
             driver.save_screenshot(os.path.join(download_folder,'Reporte_Sismicidad.png'))
             # print("png   ################################ 100% \n")
             printlog("info","png","ok")
-
+        driver.close()
         resultados = {"sismos":result,"fecha_inicial":starttime,"fecha_final":endtime}
 
 
@@ -378,8 +378,7 @@ class LinkedQuery(object):
             # print("png   ################################ 100% \n")
             printlog("info","png","ok")
 
-        print((starttime,"-",endtime))
-        print(result, "sismos")
+        driver.close()
         resultados = {"sismos":result,"fecha_inicial":starttime,"fecha_final":endtime}
 
         filepaths = mv_downloaded_files(download_folder)
@@ -593,6 +592,7 @@ def email( busqueda,resultados):
                     break
                 else:
                     pass
+            return
         else:
             pass
 
