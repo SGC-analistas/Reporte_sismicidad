@@ -45,22 +45,22 @@ def read_args():
     parser.add_argument(prefix+"fi",prefix*2+"fecha_ini",
                         metavar='',default=None,
                         type=str,
-                        help="1) Fecha inicial de busqueda en el catalogo [YYYYmmdd]."+\
-                             "2) Nombre del día, toma el día más cercano. W -> miercoles"+\
-                                "3) hoy")
+                        help="[tres opciones] 1) Fecha de busqueda en el catalogo [YYYYmmdd]."+\
+                             " 2) Inicial del día, toma el día más cercano. W -> miercoles." +\
+                                "3) 'hoy' toma la fecha de hoy")
 
     parser.add_argument(prefix+"ff",prefix*2+"fecha_fin",
                         metavar='',default=None,
                         type=str,
-                        help="1) Fecha final de busqueda en el catalogo [YYYYmmdd]."+\
-                             "2) Nombre del día, toma el día más cercano. V -> viernes"+\
-                                 "3) hoy")
+                        help="[tres opciones] 1) Fecha de busqueda en el catalogo [YYYYmmdd]."+\
+                             " 2) Inicial del día, toma el día más cercano. W -> miercoles." +\
+                                "3) 'hoy' toma la fecha de hoy")
     
     parser.add_argument(prefix+"t",prefix*2+"type",
                         metavar='',default=None,
                         type=str,
                         help="[radial o cuadrante]. Para radial: ++lat_central, ++lon_central, ++radio."+\
-                            "Para cuadrante: ++lat_min,++lon_min,++lat_max,++lon_max")
+                            " Para cuadrante: ++lat_min,++lon_min,++lat_max,++lon_max")
 
     parser.add_argument(prefix+"l",prefix*2+"link",
                         metavar='',default=None,
@@ -73,7 +73,7 @@ def read_args():
                         metavar='',default=None,
                         type=bool,
                         help="True para editar cosas generales del cuerpo del mensaje."+\
-                            "NO ELIMINE NI AGREGUE %s "+\
+                            f"NO ELIMINE NI AGREGUE %%s. "+\
                             "Sirve para agregar o quitar datos adicionales a la plantilla.")
 
     parser.add_argument(prefix+"c",prefix*2+"comprobar",
