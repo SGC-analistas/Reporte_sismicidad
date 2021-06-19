@@ -410,7 +410,7 @@ def prepare_report(busqueda):
     reportes_path = os.path.join(os.getcwd(),"reportes",busqueda['nombre'].lower()+".json")
 
 
-    if os.path.isfile(reportes_path ) == True and (busqueda["guardado"] in ("no","No","NO")):
+    if os.path.isfile(reportes_path ) == True and (busqueda["guardado"] == False):
 
         while True:
             printlog("warning","Reporte",f"El nombre {busqueda['nombre']} ya fue creado. Quiere sobrescribir la informacion")
@@ -424,9 +424,9 @@ def prepare_report(busqueda):
                 sys.exit()
             else:
                 pass
-    elif os.path.isfile(reportes_path ) == True and (busqueda["guardado"] in ("si","SI","Si")):
+    elif os.path.isfile(reportes_path ) == True and (busqueda["guardado"] == True):
         return None
-    elif os.path.isfile(reportes_path ) == False and (busqueda["guardado"] in ("si","SI","Si")):
+    elif os.path.isfile(reportes_path ) == False and (busqueda["guardado"] == True):
         raise Exception(f"No tiene creado un reporte con el nombre {busqueda['nombre']}")
     else :
         seguro = "1"
@@ -506,8 +506,8 @@ def email( busqueda,resultados):
     if asunto in ("Problema","problema"):
         asunto = f"Problema en el reporte: {busqueda['nombre'].lower()}"
 
-
-        printlog("info","Problema","Desea informar el problema?.")
+        destinatarios = "ecastillo@sgc.gov.co"
+        printlog("info","Problema",f"Desea informar el problema? -> {destinatarios}.")
         while True:
             print("\t1","[si]","    "+ "0","[no]"  )
             p = input()
@@ -567,7 +567,7 @@ def email( busqueda,resultados):
         print(html2text.html2text(mensaje))
         print(f"\n{ast*60}\n ")
 
-    printlog("info","Correo","Desea enviar correos?") 
+    printlog("info","Correo",f"Desea enviar correos? -> {destinatarios}") 
     while True:
         print("1","[si]","    "+ "0","[no]"  )
         p = input()
@@ -575,7 +575,8 @@ def email( busqueda,resultados):
             break   
         elif p== "0":
             asunto = f"Problema en el reporte: {busqueda['nombre'].lower()}"
-            printlog("info","Problema","Desea informar el problema?.")
+            destinatarios = "ecastillo@sgc.gov.co"
+            printlog("info","Problema",f"Desea informar el problema?-> {destinatarios}.")
             while True:
                 print("\t1","[si]","    "+ "0","[no]"  )
                 c = input()

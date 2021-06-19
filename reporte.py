@@ -28,9 +28,9 @@ def read_args():
 
     parser.add_argument(prefix+"g",prefix*2+"guardado",
                         default=None,
-                        type=str,
+                        type=bool,
                         metavar='',
-                        help="si para coger una busqueda guardada", required = True)
+                        help="True para coger una busqueda guardada", required = True)
 
     parser.add_argument(prefix+"n",prefix*2+"nombre",
                         metavar='', default=None,
@@ -80,9 +80,14 @@ def read_args():
                         metavar='',default=None,
                         type=bool,
                         help="True para comprobar el cuerpo del mensaje.")
+    
+    parser.add_argument(prefix+"ig",prefix*2+"info_guardado",
+                        metavar='',default=None,
+                        type=bool,
+                        help="True para ver los que estan guardados.")
 
     parser.add_argument(prefix+"nav",prefix*2+"navegador",
-                        metavar='',default=None,
+                        metavar='',default=False,
                         type=bool,
                         help="True para abrir navegador")
 
@@ -208,9 +213,8 @@ def read_args():
                         help= "Muestra toda la información del proceso de la rutina")
 
     args = parser.parse_args()
-
     ### comprobamos que las variables se guarden en los formatos adecuados
-    bool_args = ['guardado','guardar','editar','comprobar','navegador']
+    bool_args = ['guardado','guardar','editar','comprobar','navegador','info_guardado']
     str_args = ['fecha_ini','fecha_fin','nombre','type']
     list_args = ['destinatarios']
     float_args = ['mag_max','mag_min','prof_min','prof_max','rms_min','rms_max',
@@ -230,19 +234,28 @@ def read_args():
                     ut.printlog("debug","Argumetos",args_msg)
                     # print(arg,vars_args[arg],str(order[i]),"Ok") 
 
+    #Si info_guardado == True muestre los archivos que estan guardados.
+    if vars_args['info_guardado']:
+        reportes = os.path.join(os.getcwd(),"reportes")
+        listall = os.listdir(reportes)
+        onlyfiles = [f.split(".")[0] for f in listall if os.path.isfile(os.path.join(reportes, f))]
+        ut.printlog("INFO","guardados",onlyfiles)
+        exit()
+
+
     # #CONDICIONAL 1: Veamos que pasa si esta o no esta guardado
     #       1)si: Lea el json donde esta guardado
     #       2)no: Toca asegurarse que otras variable esten defindias
     #       3) Solo se puede si o no.
-    if vars_args['guardado'] in ('si','SI','Si','true','TRUE','True'):
+    if vars_args['guardado'] == True:
         if vars_args['nombre'] != None:
             jsonfile = os.path.join(os.getcwd(),"reportes",vars_args['nombre']+".json")
             with open(jsonfile) as jf:
                 vars_args = json.load(jf)[0]
-                vars_args["guardado"] = "si"
+                vars_args["guardado"] = True
         else:
             raise Exception("Se necesita definir ++nombre")
-    elif vars_args['guardado'] in ('no','NO','No','false','FALSE','False'):
+    elif vars_args['guardado'] == False:
         if vars_args['asunto'] != None and vars_args['fecha_ini'] != None and\
            vars_args['fecha_fin'] != None and vars_args['nombre'] != None and\
             vars_args['type'] != None and vars_args['destinatarios'] != None:
@@ -251,7 +264,7 @@ def read_args():
             raise Exception("Se necesita definir: asunto, destinatarios,"+\
                 " nombre","fecha_ini","fecha_fin","type")
     else:
-        raise Exception("guardado: si o no")
+        raise Exception("guardado: True o False")
 
 
     # #CONDICIONAL 2: Si se define link toca que se defina que 'tipo' de busqueda es.
@@ -279,7 +292,6 @@ def read_args():
                 pass
             else:
                 raise Exception(f"se debe definir ++lat_min, ++lat_max, ++lon_min, ++lon_max")
-
 
     # Preparemos el reporte: 1) Si esta guardado entonces compruebe que los archivos
     # necesarios estan disponibles. 2)Si quiere
@@ -335,12 +347,12 @@ def make_report(busqueda):
 
     """
 
-    ut.printlog("info","Reporte","Creando reporte con web scraping")
-
-    if busqueda.navegador == None:
+    if busqueda.navegador == True:
+        hide = False
+    else: 
         hide = True
-    else:
-        hide = busqueda.navegador
+
+    ut.printlog("info","Reporte","Creando reporte con web scraping")
 
     if busqueda.type == "radial":
 
