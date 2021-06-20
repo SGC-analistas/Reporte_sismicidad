@@ -592,10 +592,10 @@ def email( busqueda,resultados):
                                         problema)
                     break
                 elif c == "0":
-                    break
+                    exit()
                 else:
                     pass
-            return
+            break
         else:
             pass
 

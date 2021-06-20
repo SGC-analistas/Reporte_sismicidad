@@ -1901,3 +1901,45 @@ JavaScript note: http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Sei
 
 (firefox:5282): GLib-GObject-CRITICAL **: 23:45:03.076: g_object_get: assertion 'G_IS_OBJECT (object)' failed
 1624164312362	Marionette	INFO	Stopped listening on port 39955
+1624164730062	geckodriver	INFO	Listening on 127.0.0.1:57797
+1624164730070	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilew5VK07"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1624164731540	Marionette	INFO	Listening on port 43475
+1624164731590	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+JavaScript error: http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Seiscomp/consulta_sismo.php, line 37: SyntaxError: missing } after property list
+JavaScript note: http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Seiscomp/consulta_sismo.php, line 35: { opened at line 35, column 37
+
+(firefox:7840): GLib-GObject-CRITICAL **: 23:52:19.820: g_object_get: assertion 'G_IS_OBJECT (object)' failed
+
+(firefox:7840): GLib-GObject-CRITICAL **: 23:52:24.985: g_object_get: assertion 'G_IS_OBJECT (object)' failed
+1624164754175	Marionette	INFO	Stopped listening on port 43475
+1624165022197	geckodriver	INFO	Listening on 127.0.0.1:33567
+1624165022203	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileuX75nc"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1624165023673	Marionette	INFO	Listening on port 42543
+1624165025139	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+JavaScript error: http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Seiscomp/consulta_sismo.php, line 37: SyntaxError: missing } after property list
+JavaScript note: http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Seiscomp/consulta_sismo.php, line 35: { opened at line 35, column 37
+
+(firefox:8753): GLib-GObject-CRITICAL **: 23:57:12.180: g_object_get: assertion 'G_IS_OBJECT (object)' failed
+
+(firefox:8753): GLib-GObject-CRITICAL **: 23:57:17.354: g_object_get: assertion 'G_IS_OBJECT (object)' failed
+1624165046446	Marionette	INFO	Stopped listening on port 42543
+1624165155549	geckodriver	INFO	Listening on 127.0.0.1:36197
+1624165156556	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileR9xsVn"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1624165158082	Marionette	INFO	Listening on port 40915
+1624165158393	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+JavaScript error: http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Seiscomp/consulta_sismo.php, line 37: SyntaxError: missing } after property list
+JavaScript note: http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Seiscomp/consulta_sismo.php, line 35: { opened at line 35, column 37
+
+(firefox:9283): GLib-GObject-CRITICAL **: 23:59:25.474: g_object_get: assertion 'G_IS_OBJECT (object)' failed
+
+(firefox:9283): GLib-GObject-CRITICAL **: 23:59:30.639: g_object_get: assertion 'G_IS_OBJECT (object)' failed
+1624165179971	Marionette	INFO	Stopped listening on port 40915
