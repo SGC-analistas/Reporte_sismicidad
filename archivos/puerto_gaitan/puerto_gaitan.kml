@@ -203,18 +203,11 @@
 </Icon>
 </IconStyle>
 </Style>
- <Placemark id="sismoSGC2021lcogxc">
- <description>Region: Puerto Gaitán - Meta, Colombia  Fecha Hora UTC: 2021-06-07 04:39:19 Magnitud: 3.7  Profundidad: 0Km</description>
-<styleUrl>#puntorojo2</styleUrl>
- <Point>
- <coordinates>-71.55233333,3.947166667</coordinates>
- </Point>
- </Placemark>
- <Placemark id="sismoSGC2021lcpoyp">
- <description>Region: Puerto Gaitán - Meta, Colombia  Fecha Hora UTC: 2021-06-07 05:18:51 Magnitud: 2.2  Profundidad: 0Km</description>
+ <Placemark id="sismoSGC2021lzefjm">
+ <description>Region: Puerto Gaitán - Meta, Colombia  Fecha Hora UTC: 2021-06-19 12:19:37 Magnitud: 2.5  Profundidad: 0.2Km</description>
 <styleUrl>#puntorojo1</styleUrl>
  <Point>
- <coordinates>-71.64066667,3.888</coordinates>
+ <coordinates>-71.606,4.035</coordinates>
  </Point>
  </Placemark>
 <ScreenOverlay><name>Legend</name><Icon><href>http://bdrsnc.sgc.gov.co/sismologia1/images/leyenda_sismos.png</href></Icon><overlayXY x="0" y="380" xunits="pixels" yunits="pixels"/><screenXY x="5" y="1" xunits="pixels" yunits="fraction"/><rotationXY x="0" y="0" xunits="pixels" yunits="pixels"/><size x="0" y="0" xunits="pixels" yunits="pixels"/></ScreenOverlay>

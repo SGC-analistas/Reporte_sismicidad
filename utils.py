@@ -409,8 +409,7 @@ def prepare_report(busqueda):
     archivo_folder_path = os.path.join(os.getcwd(),"archivos",busqueda['nombre'].lower())
     reportes_path = os.path.join(os.getcwd(),"reportes",busqueda['nombre'].lower()+".json")
 
-
-    if os.path.isfile(reportes_path ) == True and (busqueda["guardado"] == False):
+    if os.path.isfile(reportes_path ) == True and (busqueda["guardado"].lower() in ("false","f")):
 
         while True:
             printlog("warning","Reporte",f"El nombre {busqueda['nombre']} ya fue creado. Quiere sobrescribir la informacion")
@@ -420,16 +419,18 @@ def prepare_report(busqueda):
             if seguro == "1":
                 os.system(f"rm -r  {correo_folder_path} {archivo_folder_path} {reportes_path}")
                 break
-            if seguro == "2":
+            elif seguro == "2":
                 sys.exit()
             else:
                 pass
-    elif os.path.isfile(reportes_path ) == True and (busqueda["guardado"] == True):
+    
+    elif os.path.isfile(reportes_path ) == True and (busqueda["guardado"].lower() in ("true","t")):
         return None
-    elif os.path.isfile(reportes_path ) == False and (busqueda["guardado"] == True):
+    elif os.path.isfile(reportes_path ) == False and (busqueda["guardado"].lower() in ("true","t")):
         raise Exception(f"No tiene creado un reporte con el nombre {busqueda['nombre']}")
     else :
         seguro = "1"
+
 
     for folder_path in [correo_folder_path,archivo_folder_path]:
         if os.path.isdir(folder_path) == False:
@@ -528,7 +529,7 @@ def email( busqueda,resultados):
     else:
         mensaje=open( mensaje_path).read()
 
-        if busqueda["editar"]:
+        if busqueda["editar"].lower() in ("true","t"):
             printlog("info","Reporte-editar",f"Editando reporte con nano")
 
             os.system(f"nano {mensaje_path}")
@@ -552,20 +553,21 @@ def email( busqueda,resultados):
                                resultados['sismos'],
                                aclaracion)
 
-    if busqueda["comprobar"]:
-        if resultados['sismos'] != 0:
-            print("\n")
-            printlog("info","Reporte-comprobar",f"Datos de los sismos")
-            excel_file= pd.read_excel(   os.path.join( files_folder_path,
-                                                f"{busqueda['nombre']}.xlsx"))
-            print(excel_file.iloc[:,:4])
-            print("\n")
+    if busqueda["comprobar"] != None:
+        if busqueda["comprobar"].lower() in ("true","t"):
+            if resultados['sismos'] != 0:
+                print("\n")
+                printlog("info","Reporte-comprobar",f"Datos de los sismos")
+                excel_file= pd.read_excel(   os.path.join( files_folder_path,
+                                                    f"{busqueda['nombre']}.xlsx"))
+                print(excel_file.iloc[:,:4])
+                print("\n")
 
-        ast = "#"
-        printlog("info","Reporte-comprobar",f"El mensaje es el siguiente:")
-        print(f" \n\n{ast*60}\n ")
-        print(html2text.html2text(mensaje))
-        print(f"\n{ast*60}\n ")
+            ast = "#"
+            printlog("info","Reporte-comprobar",f"El mensaje es el siguiente:")
+            print(f" \n\n{ast*60}\n ")
+            print(html2text.html2text(mensaje))
+            print(f"\n{ast*60}\n ")
 
     printlog("info","Correo",f"Desea enviar correos? -> {destinatarios}") 
     while True:
@@ -580,7 +582,7 @@ def email( busqueda,resultados):
             while True:
                 print("\t1","[si]","    "+ "0","[no]"  )
                 c = input()
-                if credits == "1":
+                if c == "1":
                     os.system(f"nano {problema_msg_path}")
                     problema= open(problema_msg_path,"r", encoding='utf-8').read()
                     mensaje=open( problema_path, encoding='utf-8' ).read()
@@ -629,11 +631,11 @@ def email( busqueda,resultados):
 
     printlog("info","Correo",f"Correo enviado a: {destinatarios}.\n")
 
-
-    if busqueda['guardar'] == False:
-        json 
-        msg = f"rm -r {json_path} {files_folder_path} {emails_folder_path}"
-        printlog("debug","Guardar","msg")
+    if busqueda['guardar'] != None:
+        if busqueda['guardar'].lower() in ("false","f"):
+            json 
+            msg = f"rm -r {json_path} {files_folder_path} {emails_folder_path}"
+            printlog("debug","Guardar","msg")
 
 
 if __name__ == "__main__":

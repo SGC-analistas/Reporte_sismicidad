@@ -2,7 +2,7 @@
 #  * @author Emmanuel Castillo
 #  * @email ecastillot@unal.edu.co / ecastillo@sgc.gov.co
 #  * @create date 2021-06-08 11:39:32
-#  * @modify date 2021-06-08 11:39:32
+#  * @modify date 2021-06-19 18:13:10
 #  * @desc [description]
 #  */
 
@@ -16,20 +16,23 @@ import datetime as dt
 def read_args():
     prefix = "+"
     ini_msg = "#"*120
-    obligatorio_msg = f"[Obligatorio]:\n\t{prefix*2}guardado"
-    opcional_msg = f"[Opcional]:\n\t{prefix*2}fecha_inicial {prefix*2}fecha_final {prefix*2}type {prefix*2}mag_min {prefix*2}mag_max {prefix*2}prof_min {prefix*2}prof-max {prefix*2}rms_min\n"+\
-                f"       \t{prefix*2}rms_max {prefix*2}gap_min {prefix*2}gap_max {prefix*2}eprof_min {prefix*2}eprof_max {prefix*2}elon_min {prefix*2}elon_max {prefix*2}elat_min\n"\
-                f"       \t{prefix*2}elat_max {prefix*2}nombre {prefix*2}link {prefix*2}guardar {prefix*2}destinatarios\n"+\
-                f"       \n\t[radial]: {prefix*2}lat_central {prefix*2}lon_central {prefix*2}radio\n"+\
-                f"       \t[cuadrante]: {prefix*2}lat_min {prefix*2}lat_max {prefix*2}lon_min {prefix*2}lon_max\n"
-
+    # obligatorio_msg = f"[Obligatorio]:\n\t{prefix*2}guardado"
+    # opcional_msg = f"[Opcional]:\n\t{prefix*2}fecha_inicial {prefix*2}fecha_final {prefix*2}type {prefix*2}mag_min {prefix*2}mag_max {prefix*2}prof_min {prefix*2}prof-max {prefix*2}rms_min\n"+\
+    #             f"       \t{prefix*2}rms_max {prefix*2}gap_min {prefix*2}gap_max {prefix*2}eprof_min {prefix*2}eprof_max {prefix*2}elon_min {prefix*2}elon_max {prefix*2}elat_min\n"\
+    #             f"       \t{prefix*2}elat_max {prefix*2}nombre {prefix*2}link {prefix*2}guardar {prefix*2}destinatarios\n"+\
+    #             f"       \n\t[radial]: {prefix*2}lat_central {prefix*2}lon_central {prefix*2}radio\n"+\
+    #             f"       \t[cuadrante]: {prefix*2}lat_min {prefix*2}lat_max {prefix*2}lon_min {prefix*2}lon_max\n"
+    # parser = argparse.ArgumentParser("Enviar reportes. ", prefix_chars=prefix)
+    # parser = argparse.ArgumentParser("Enviar reportes. ",prefix_chars=prefix,
+    #                      usage=f'\n{ini_msg}\n{obligatorio_msg} \n{opcional_msg}\n[{prefix}h {prefix*2}help] \n[{prefix*2}debug] \n{ini_msg}\n ')
     parser = argparse.ArgumentParser("Enviar reportes. ",prefix_chars=prefix,
-                         usage=f'\n{ini_msg}\n{obligatorio_msg} \n{opcional_msg}\n[{prefix}h {prefix*2}help] \n[{prefix*2}debug] \n{ini_msg}\n ')
+                         usage=f'Enviar reportes.')
 
     parser.add_argument(prefix+"g",prefix*2+"guardado",
-                        default=None,
-                        type=bool,
+                        type=str,
+                        default="false",
                         metavar='',
+                        choices={"true", "false","True", "False"},
                         help="True para coger una busqueda guardada", required = True)
 
     parser.add_argument(prefix+"n",prefix*2+"nombre",
@@ -58,6 +61,7 @@ def read_args():
     
     parser.add_argument(prefix+"t",prefix*2+"type",
                         metavar='',default=None,
+                        choices={"radial", "cuadrante"},
                         type=str,
                         help="[radial o cuadrante]. Para radial: ++lat_central, ++lon_central, ++radio."+\
                             " Para cuadrante: ++lat_min,++lon_min,++lat_max,++lon_max")
@@ -70,25 +74,29 @@ def read_args():
                             "Se debe definir ++type según sea el tipo de busqueda.")
     
     parser.add_argument(prefix+"e",prefix*2+"editar",
-                        metavar='',default=None,
-                        type=bool,
+                        metavar='',default="false",
+                        type=str,
+                        choices={"true", "false","True", "False"},
                         help="True para editar cosas generales del cuerpo del mensaje."+\
                             f"NO ELIMINE NI AGREGUE %%s. "+\
                             "Sirve para agregar o quitar datos adicionales a la plantilla.")
 
     parser.add_argument(prefix+"c",prefix*2+"comprobar",
-                        metavar='',default=None,
-                        type=bool,
+                        metavar='',default="true",
+                        choices={"true", "false","True", "False"},
+                        type=str,
                         help="True para comprobar el cuerpo del mensaje.")
     
     parser.add_argument(prefix+"ig",prefix*2+"info_guardado",
-                        metavar='',default=None,
-                        type=bool,
+                        metavar='',default="false",
+                        choices={"true", "false","True", "False"},
+                        type=str,
                         help="True para ver los que estan guardados.")
 
     parser.add_argument(prefix+"nav",prefix*2+"navegador",
-                        metavar='',default=False,
-                        type=bool,
+                        metavar='',default="",
+                        choices={"true", "false","True", "False"},
+                        type=str,
                         help="True para abrir navegador")
 
     parser.add_argument(prefix+"magm",prefix*2+"mag_min",
@@ -169,8 +177,9 @@ def read_args():
                                 " Ejemplo: 'ecastillo@sgc.gov.co' 'rsncol@sgc.gov.co' ")
     
     parser.add_argument(prefix+"gg",prefix*2+"guardar",
-                        metavar='', default= True,
-                        type=bool,
+                        metavar='', default= "true",
+                        choices={"true", "false","True", "False"},
+                        type=str,
                         help= "True para guardar la busqueda")
 
     parser.add_argument(prefix+"latc",prefix*2+"lat_central",
@@ -213,17 +222,19 @@ def read_args():
                         help= "Muestra toda la información del proceso de la rutina")
 
     args = parser.parse_args()
+
+
     ### comprobamos que las variables se guarden en los formatos adecuados
-    bool_args = ['guardado','guardar','editar','comprobar','navegador','info_guardado']
-    str_args = ['fecha_ini','fecha_fin','nombre','type']
+    str_args = ['fecha_ini','fecha_fin','nombre','type','guardado','guardar',
+                'editar','comprobar','navegador','info_guardado']
     list_args = ['destinatarios']
     float_args = ['mag_max','mag_min','prof_min','prof_max','rms_min','rms_max',
                 'gap_min','gap_max','eprof_min','eprof_max','elon_min','elon_max',
                 'elat_min','elat_max','lat_central','lon_central','radio',
                 'lat_min','lat_max','lon_min','lon_max']
 
-    order = [bool,str,list,float]
-    order_args = [bool_args,str_args,list_args,float_args]
+    order = [str,list,float]
+    order_args = [str_args,list_args,float_args]
     vars_args = vars(args)
     
     for i, type_args in enumerate(order_args):
@@ -235,35 +246,40 @@ def read_args():
                     # print(arg,vars_args[arg],str(order[i]),"Ok") 
 
     #Si info_guardado == True muestre los archivos que estan guardados.
-    if vars_args['info_guardado']:
+
+    if vars_args['info_guardado'].lower() in ("true","t"):
         reportes = os.path.join(os.getcwd(),"reportes")
         listall = os.listdir(reportes)
         onlyfiles = [f.split(".")[0] for f in listall if os.path.isfile(os.path.join(reportes, f))]
         ut.printlog("INFO","guardados",onlyfiles)
         exit()
-
+    elif vars_args['info_guardado'].lower() in ("false","f"):
+        pass
+    else: 
+        raise Exception("info_guardado: True o False")
 
     # #CONDICIONAL 1: Veamos que pasa si esta o no esta guardado
     #       1)si: Lea el json donde esta guardado
     #       2)no: Toca asegurarse que otras variable esten defindias
     #       3) Solo se puede si o no.
-    if vars_args['guardado'] == True:
+    if vars_args['guardado'].lower() in ("true","t"):
         if vars_args['nombre'] != None:
             jsonfile = os.path.join(os.getcwd(),"reportes",vars_args['nombre']+".json")
             with open(jsonfile) as jf:
                 vars_args = json.load(jf)[0]
-                vars_args["guardado"] = True
+                vars_args["guardado"] = "true"
         else:
             raise Exception("Se necesita definir ++nombre")
-    elif vars_args['guardado'] == False:
+    elif vars_args['guardado'].lower() in ("false","f"):
         if vars_args['asunto'] != None and vars_args['fecha_ini'] != None and\
-           vars_args['fecha_fin'] != None and vars_args['nombre'] != None and\
+        vars_args['fecha_fin'] != None and vars_args['nombre'] != None and\
             vars_args['type'] != None and vars_args['destinatarios'] != None:
             pass
         else:
             raise Exception("Se necesita definir: asunto, destinatarios,"+\
                 " nombre","fecha_ini","fecha_fin","type")
     else:
+        print(vars_args['guardado'].lower())
         raise Exception("guardado: True o False")
 
 
@@ -282,6 +298,8 @@ def read_args():
             if (vars_args['lat_central'] != None) and (vars_args['lon_central'] != None) and\
                 (vars_args['radio'] != None):
                 pass
+            # elif vars_args['link'] != None:
+            #     pass
             else:
                 raise Exception(f"se debe definir ++lat_central, ++lon_central, ++radio")
 
@@ -290,6 +308,8 @@ def read_args():
             if vars_args['lat_min'] != None and vars_args['lon_min'] != None and\
                 vars_args['lat_max'] != None and vars_args['lon_max'] != None:
                 pass
+            # elif vars_args['link'] != None:
+            #     pass
             else:
                 raise Exception(f"se debe definir ++lat_min, ++lat_max, ++lon_min, ++lon_max")
 
@@ -346,8 +366,8 @@ def make_report(busqueda):
     ---------
 
     """
-
-    if busqueda.navegador == True:
+    print(busqueda.navegador.lower())
+    if busqueda.navegador.lower() in ("true","t"):
         hide = False
     else: 
         hide = True
@@ -357,7 +377,7 @@ def make_report(busqueda):
     if busqueda.type == "radial":
 
         if busqueda.link !=None:
-            query = ut.LinkedQuery(busqueda.link)
+            query = ut.LinkedQuery(busqueda.link, hide_driver=hide)
         else:
             query = ut.RadialQuery(min_date=busqueda.fecha_inicial,max_date=busqueda.fecha_final,
                                         lon=busqueda.lon_central,lat=busqueda.lat_central,radius=busqueda.radio,
@@ -373,7 +393,7 @@ def make_report(busqueda):
 
     elif busqueda.type == "cuadrante":
         if busqueda.link != None:
-            query = ut.LinkedQuery(busqueda.link)
+            query = ut.LinkedQuery(busqueda.link, hide_driver=hide)
         else:
             query = ut.SquareQuery(min_date=busqueda.fecha_inicial,max_date=busqueda.fecha_final,
                                     min_lat=busqueda.lat_min,max_lat=busqueda.lat_max,

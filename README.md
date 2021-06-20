@@ -31,23 +31,12 @@ source .reporte/bin/activate
 pip install -r requirements.txt
 ```
 
-## 2. Instrucciones de uso
-
-### 1. Crear y guardar consulta
-#### cuadrante
-python reporte.py +g True 
-
-#### radial
-
-#### link
-
-## 3. Comandos
+## 2. Comandos
 Al digitar 
 ```bash 
  python reporte.py +h
  ```
 Pueden obaservar la siguiente ayuda:
-Al digitar 
 ```bash 
   +h, ++help            Ayuda
   +g , ++guardado       True para coger una busqueda guardada. Se envia tal y como estaba guardado.
@@ -87,6 +76,38 @@ Al digitar
 
  ```
  
+
+## 2. Instrucciones de uso
+
+### 1. Crear consulta
+#### cuadrante
+1) Puerto Gaitán 
+```bash 
+python reporte.py +g false +gg true +n puerto_gaitan +a "Reporte de sismicidad alrededor del municipio de Puerto Gaitan" +d mcalvache@sgc.gov.co ldionicio@sgc.gov.co ppedraza@sgc.gov.co mlizarazo@sgc.gov.co omercado@sgc.gov.co emayorga@sgc.gov.co  +fi V +ff hoy +t cuadrante +latm 3.42 +latM 4.41 +lonm -72.15 +lonM -70.84 +e True +c True
+ ```
+
+#### radial
+```bash 
+python reporte.py +g false +gg true +n puerto_gaitan +a "Reporte radial" +d mcalvache@sgc.gov.co ldionicio@sgc.gov.co ppedraza@sgc.gov.co mlizarazo@sgc.gov.co omercado@sgc.gov.co emayorga@sgc.gov.co  +fi V +ff hoy +t radial+latc 4.33 +lonc -73.86 +r 1004 +e True +c True
+ ```
+
+
+#### link
+A veces el grupo de sistemas generan el link directo de busqueda.
+
+1) Quetame:
+```bash 
+python reporte.py +g false +gg true +n quetame +a "Reporte de sismicidad alrededor del municipio de Quetame" +d rsncol@sgc.gov.co ecastillo@sgc.gov.co +fi V +ff hoy +t radial +l http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Quetame/consultaexperta.php +latc 4.33 +lonc -73.86 +r 100 +e True +c True
+ ```
+
+### 2. Enviar consulta
+Una vez el reporte haya sido guardado, el resto de veces se puede enviar del siguiente modo:
+
+```bash 
+python reporte.py +g True +n quetame
+```
+
+
 ## Autor
 
 - Emmanuel David Castillo ecastillo@sgc.gov.co/ecastillot@unal.edu.co
