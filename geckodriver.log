@@ -1943,3 +1943,238 @@ JavaScript note: http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Sei
 
 (firefox:9283): GLib-GObject-CRITICAL **: 23:59:30.639: g_object_get: assertion 'G_IS_OBJECT (object)' failed
 1624165179971	Marionette	INFO	Stopped listening on port 40915
+1624288315273	geckodriver	INFO	Listening on 127.0.0.1:60319
+1624288315285	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileQLzHkH"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1624288318131	Marionette	INFO	Listening on port 41743
+1624288318227	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/URIFixup.jsm, line 271: NS_ERROR_FAILURE: Should pass a non-null uri
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+
+(firefox:16596): GLib-GObject-CRITICAL **: 10:12:01.269: g_object_get: assertion 'G_IS_OBJECT (object)' failed
+
+(firefox:16596): GLib-GObject-CRITICAL **: 10:12:06.429: g_object_get: assertion 'G_IS_OBJECT (object)' failed
+1624288335494	Marionette	INFO	Stopped listening on port 41743
+1624288361122	geckodriver	INFO	Listening on 127.0.0.1:60923
+1624288361127	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileRlvryn"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1624288362529	Marionette	INFO	Listening on port 43053
+1624288362535	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/URIFixup.jsm, line 271: NS_ERROR_FAILURE: Should pass a non-null uri
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+JavaScript error: http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Seiscomp/consulta_sismo.php, line 37: SyntaxError: missing } after property list
+JavaScript note: http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Seiscomp/consulta_sismo.php, line 35: { opened at line 35, column 37
+
+(firefox:17015): GLib-GObject-CRITICAL **: 10:12:51.840: g_object_get: assertion 'G_IS_OBJECT (object)' failed
+
+(firefox:17015): GLib-GObject-CRITICAL **: 10:12:57.002: g_object_get: assertion 'G_IS_OBJECT (object)' failed
+1624288386334	Marionette	INFO	Stopped listening on port 43053
+1624288430888	geckodriver	INFO	Listening on 127.0.0.1:35719
+1624288430899	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilekpri3n"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1624288432287	Marionette	INFO	Listening on port 33755
+1624288432308	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/URIFixup.jsm, line 271: NS_ERROR_FAILURE: Should pass a non-null uri
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+JavaScript error: http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Seiscomp/consulta_sismo.php, line 37: SyntaxError: missing } after property list
+JavaScript note: http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Seiscomp/consulta_sismo.php, line 35: { opened at line 35, column 37
+
+(firefox:17439): GLib-GObject-CRITICAL **: 10:14:00.697: g_object_get: assertion 'G_IS_OBJECT (object)' failed
+
+(firefox:17439): GLib-GObject-CRITICAL **: 10:14:05.859: g_object_get: assertion 'G_IS_OBJECT (object)' failed
+1624288454830	Marionette	INFO	Stopped listening on port 33755
+1624290400556	geckodriver	INFO	Listening on 127.0.0.1:60699
+1624290401563	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileCZ7RzT"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1624290403062	Marionette	INFO	Listening on port 45341
+1624290403072	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/URIFixup.jsm, line 271: NS_ERROR_FAILURE: Should pass a non-null uri
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+JavaScript error: http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Seiscomp/consulta_sismo.php, line 37: SyntaxError: missing } after property list
+JavaScript note: http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Seiscomp/consulta_sismo.php, line 35: { opened at line 35, column 37
+
+(firefox:23124): GLib-GObject-CRITICAL **: 10:46:52.130: g_object_get: assertion 'G_IS_OBJECT (object)' failed
+
+(firefox:23124): GLib-GObject-CRITICAL **: 10:46:57.314: g_object_get: assertion 'G_IS_OBJECT (object)' failed
+1624290426490	Marionette	INFO	Stopped listening on port 45341
+1624290456058	geckodriver	INFO	Listening on 127.0.0.1:35569
+1624290456072	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileU0xTTO"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1624290457579	Marionette	INFO	Listening on port 34617
+1624290457884	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/URIFixup.jsm, line 271: NS_ERROR_FAILURE: Should pass a non-null uri
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+JavaScript error: http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Seiscomp/consulta_sismo.php, line 37: SyntaxError: missing } after property list
+JavaScript note: http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Seiscomp/consulta_sismo.php, line 35: { opened at line 35, column 37
+
+(firefox:23577): GLib-GObject-CRITICAL **: 10:47:44.975: g_object_get: assertion 'G_IS_OBJECT (object)' failed
+
+(firefox:23577): GLib-GObject-CRITICAL **: 10:47:50.145: g_object_get: assertion 'G_IS_OBJECT (object)' failed
+1624290479205	Marionette	INFO	Stopped listening on port 34617
+1624713137969	geckodriver	INFO	Listening on 127.0.0.1:43439
+1624713137991	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileWi2leW"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1624713141346	Marionette	INFO	Listening on port 38969
+1624713141399	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+1624713146053	Marionette	INFO	Stopped listening on port 38969
+1624713173942	geckodriver	INFO	Listening on 127.0.0.1:35907
+1624713173948	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile9WtXrT"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1624713175556	Marionette	INFO	Listening on port 34857
+1624713175663	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+1624713179120	Marionette	INFO	Stopped listening on port 34857
+1624713315846	geckodriver	INFO	Listening on 127.0.0.1:48051
+1624713315851	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilefKCklk"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1624713317200	Marionette	INFO	Listening on port 45503
+1624713317416	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+1624713321874	Marionette	INFO	Stopped listening on port 45503
+1624713380496	geckodriver	INFO	Listening on 127.0.0.1:58913
+1624713381504	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofiletufSmd"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1624713382840	Marionette	INFO	Listening on port 44969
+1624713383048	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/URIFixup.jsm, line 271: NS_ERROR_FAILURE: Should pass a non-null uri
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+1624713386483	Marionette	INFO	Stopped listening on port 44969
+1624713770737	geckodriver	INFO	Listening on 127.0.0.1:53839
+1624713771744	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilevAR1Sq"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1624713773089	Marionette	INFO	Listening on port 45649
+1624713773301	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/URIFixup.jsm, line 271: NS_ERROR_FAILURE: Should pass a non-null uri
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+1624713776848	Marionette	INFO	Stopped listening on port 45649
+1624713860961	geckodriver	INFO	Listening on 127.0.0.1:35571
+1624713861969	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilezjYQe5"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1624713863418	Marionette	INFO	Listening on port 36559
+1624713863488	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/URIFixup.jsm, line 271: NS_ERROR_FAILURE: Should pass a non-null uri
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+1624713866688	Marionette	INFO	Stopped listening on port 36559
+1624713940354	geckodriver	INFO	Listening on 127.0.0.1:39753
+1624713941362	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilekkwxpV"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1624713942747	Marionette	INFO	Listening on port 43543
+1624713942804	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+1624713945374	Marionette	INFO	Stopped listening on port 43543
+1624714307686	geckodriver	INFO	Listening on 127.0.0.1:48139
+1624714307692	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile15D9aQ"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1624714308985	Marionette	INFO	Listening on port 34299
+1624714308997	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/URIFixup.jsm, line 271: NS_ERROR_FAILURE: Should pass a non-null uri
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+1624714312642	Marionette	INFO	Stopped listening on port 34299
+1624714341369	geckodriver	INFO	Listening on 127.0.0.1:45169
+1624714341374	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilelCuFC1"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1624714342666	Marionette	INFO	Listening on port 41645
+1624714342682	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/URIFixup.jsm, line 271: NS_ERROR_FAILURE: Should pass a non-null uri
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+1624714346142	Marionette	INFO	Stopped listening on port 41645
+1624714378401	geckodriver	INFO	Listening on 127.0.0.1:44503
+1624714378407	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilekh6CTY"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1624714379763	Marionette	INFO	Listening on port 36269
+1624714379971	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+1624714384234	Marionette	INFO	Stopped listening on port 36269
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1624714428395	geckodriver	INFO	Listening on 127.0.0.1:50089
+1624714428401	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileOHgKtf"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1624714429791	Marionette	INFO	Listening on port 35629
+1624714429836	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+1624714433380	Marionette	INFO	Stopped listening on port 35629
+1624715096563	geckodriver	INFO	Listening on 127.0.0.1:33771
+1624715096568	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileJzKHNn"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1624715097891	Marionette	INFO	Listening on port 37191
+1624715097995	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+1624715101830	Marionette	INFO	Stopped listening on port 37191
+1624715429897	geckodriver	INFO	Listening on 127.0.0.1:50903
+1624715430904	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileBLayrJ"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1624715432264	Marionette	INFO	Listening on port 42887
+1624715432309	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+1624715436983	Marionette	INFO	Stopped listening on port 42887
+1624715477188	geckodriver	INFO	Listening on 127.0.0.1:53127
+1624715477193	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileUVILs9"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1624715478498	Marionette	INFO	Listening on port 44657
+1624715478807	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+1624715482190	Marionette	INFO	Stopped listening on port 44657
+1624715575829	geckodriver	INFO	Listening on 127.0.0.1:36759
+1624715575834	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileJWz7Jj"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1624715577161	Marionette	INFO	Listening on port 39483
+1624715577454	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/URIFixup.jsm, line 271: NS_ERROR_FAILURE: Should pass a non-null uri
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+1624715581863	Marionette	INFO	Stopped listening on port 39483
+1624715654233	geckodriver	INFO	Listening on 127.0.0.1:58749
+1624715654238	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileuW0qnn"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1624715655543	Marionette	INFO	Listening on port 35871
+1624715657056	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+1624715660346	Marionette	INFO	Stopped listening on port 35871
+1624715724954	geckodriver	INFO	Listening on 127.0.0.1:54231
+1624715724960	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilelvZDJp"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1624715726270	Marionette	INFO	Listening on port 36717
+1624715726575	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/URIFixup.jsm, line 271: NS_ERROR_FAILURE: Should pass a non-null uri
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+1624715730090	Marionette	INFO	Stopped listening on port 36717
+1624716039748	geckodriver	INFO	Listening on 127.0.0.1:39103
+1624716040755	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilexWv0hQ"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1624716042165	Marionette	INFO	Listening on port 36549
+1624716042359	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+1624716046357	Marionette	INFO	Stopped listening on port 36549
+1624716266713	geckodriver	INFO	Listening on 127.0.0.1:40455
+1624716266718	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile97eu4R"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1624716268002	Marionette	INFO	Listening on port 34879
+1624716268031	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+1624716272630	Marionette	INFO	Stopped listening on port 34879

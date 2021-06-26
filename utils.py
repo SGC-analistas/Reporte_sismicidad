@@ -340,6 +340,8 @@ class LinkedQuery(object):
 
     def go2query(self,download_folder):
 
+        printlog("warning","parametros","En una busqueda por link, los parametros de busqueda no se pueden cambiar")
+
         if os.path.isdir(download_folder) == False:
             os.makedirs(download_folder)
 
@@ -409,7 +411,9 @@ def prepare_report(busqueda):
     archivo_folder_path = os.path.join(os.getcwd(),"archivos",busqueda['nombre'].lower())
     reportes_path = os.path.join(os.getcwd(),"reportes",busqueda['nombre'].lower()+".json")
 
-    if os.path.isfile(reportes_path ) == True and (busqueda["guardado"].lower() in ("false","f")):
+
+
+    if os.path.isfile(reportes_path ) == True and (busqueda["guardado"].lower() in ("true","t")):
 
         while True:
             printlog("warning","Reporte",f"El nombre {busqueda['nombre']} ya fue creado. Quiere sobrescribir la informacion")
@@ -424,7 +428,7 @@ def prepare_report(busqueda):
             else:
                 pass
     
-    elif os.path.isfile(reportes_path ) == True and (busqueda["guardado"].lower() in ("true","t")):
+    elif os.path.isfile(reportes_path ) == True and (busqueda["guardado"].lower() in ("false","f")):
         return None
     elif os.path.isfile(reportes_path ) == False and (busqueda["guardado"].lower() in ("true","t")):
         raise Exception(f"No tiene creado un reporte con el nombre {busqueda['nombre']}")
@@ -462,6 +466,15 @@ def prepare_report(busqueda):
         tojson["fecha_final"] = tojson["fecha_fin"]
         with open(reportes_path,"w") as jsonfile:
             json.dump([tojson], jsonfile)
+        printlog("info","guardar","busqueda")
+    
+    # if busqueda['guardar'] != None:
+    #     if busqueda['guardar'].lower() in ("true","t"):
+    #         tojson = busqueda.copy()
+    #         print("hola",tojson)
+    #         with open(json_path, 'w') as jsonfile:
+    #             json.dump([tojson], jsonfile)
+    #         printlog("info","guardar","busqueda")
 
 def email( busqueda,resultados):
     """
@@ -476,12 +489,6 @@ def email( busqueda,resultados):
     --------
     Enviar correo
     """
-
-    printlog("info","Correo","Alistando parametros para enviar email")
-    asunto = busqueda["asunto"]
-    destinatarios = busqueda["destinatarios"]
-    filenames = list(map(lambda x: os.path.basename(x),resultados["archivos_descargados"]))
-
     #paths
     files_folder_path = os.path.join(os.getcwd(),'archivos', busqueda['nombre'].lower())
     emails_folder_path = os.path.join(os.getcwd(),'correos', busqueda['nombre'].lower())
@@ -492,12 +499,18 @@ def email( busqueda,resultados):
     mensaje_path = os.path.join(emails_folder_path,f"mensaje_{busqueda['type'].lower()}.html")
     problema_msg_path = os.path.join(emails_folder_path, 'problema.txt')
 
+    printlog("info","Correo","Alistando parametros para enviar email")
+    asunto = busqueda["asunto"]
+    destinatarios = busqueda["destinatarios"]
+    filenames = list(map(lambda x: os.path.basename(x),resultados["archivos_descargados"]))
+
     # lee datos del remitente
     # print ('\nPreparando correo...')
     datosr=open( remitente_path,'r' ).readlines()
     remitente = datosr[0] 
     passw= datosr[1]
     
+
     if int(resultados['sismos']) == 0:
         aclaracion = "No se envian archivos porque no hay sismos para el intervalo de tiempo mencionado."
     else:
@@ -631,11 +644,6 @@ def email( busqueda,resultados):
 
     printlog("info","Correo",f"Correo enviado a: {destinatarios}.\n")
 
-    if busqueda['guardar'] != None:
-        if busqueda['guardar'].lower() in ("false","f"):
-            json 
-            msg = f"rm -r {json_path} {files_folder_path} {emails_folder_path}"
-            printlog("debug","Guardar","msg")
 
 
 if __name__ == "__main__":

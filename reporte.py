@@ -13,6 +13,15 @@ import argparse
 import utils as ut
 import datetime as dt
 
+DEFAULT_VAL = {"guardado":"false","nombre":None,"asunto":None,"fecha_ini":None,"fecha_fin":None,
+                "type":None,"link":None,"editar":"false","comprobar":"true","info_guardado":"false",
+                "navegador":"","mag_min":None,"mag_max":None,"prof_min":None,"prof_max":None,
+                "rms_min":None,"rms_max":None,"gap_min":None,"gap_max":None,"eprof_min":None,
+                "eprof_max":None,"elon_min":None,"elon_max":None,"elat_min":None,"elat_max":None,
+                "destinatarios":None,"guardar":"true","lat_central":None,"lon_central":None,
+                "radio":None,"lat_min":None,"lat_max":None,"lon_min":None,"lon_max":None,
+                "info_reporte":None,"debug":None}
+
 def read_args():
     prefix = "+"
     ini_msg = "#"*120
@@ -30,51 +39,51 @@ def read_args():
 
     parser.add_argument(prefix+"g",prefix*2+"guardado",
                         type=str,
-                        default="false",
+                        default=DEFAULT_VAL["guardado"],
                         metavar='',
                         choices={"true", "false","True", "False"},
                         help="True para coger una busqueda guardada", required = True)
 
     parser.add_argument(prefix+"n",prefix*2+"nombre",
-                        metavar='', default=None,
+                        metavar='', default=DEFAULT_VAL["nombre"],
                         type=str,
                         help="Nombre del lugar (sin espacios) donde se guardo el reporte.")
 
     parser.add_argument(prefix+"a",prefix*2+"asunto",
-                        metavar='',default=None,
+                        metavar='',default=DEFAULT_VAL["asunto"],
                         type=str,
                         help="Asunto del correo")
 
     parser.add_argument(prefix+"fi",prefix*2+"fecha_ini",
-                        metavar='',default=None,
+                        metavar='',default=DEFAULT_VAL["fecha_ini"],
                         type=str,
                         help="[tres opciones] 1) Fecha de busqueda en el catalogo [YYYYmmdd]."+\
                              " 2) Inicial del día, toma el día más cercano. W -> miercoles." +\
                                 "3) 'hoy' toma la fecha de hoy")
 
     parser.add_argument(prefix+"ff",prefix*2+"fecha_fin",
-                        metavar='',default=None,
+                        metavar='',default=DEFAULT_VAL["fecha_fin"],
                         type=str,
                         help="[tres opciones] 1) Fecha de busqueda en el catalogo [YYYYmmdd]."+\
                              " 2) Inicial del día, toma el día más cercano. W -> miercoles." +\
                                 "3) 'hoy' toma la fecha de hoy")
-    
+
     parser.add_argument(prefix+"t",prefix*2+"type",
-                        metavar='',default=None,
+                        metavar='',default=DEFAULT_VAL["type"],
                         choices={"radial", "cuadrante"},
                         type=str,
                         help="[radial o cuadrante]. Para radial: ++lat_central, ++lon_central, ++radio."+\
                             " Para cuadrante: ++lat_min,++lon_min,++lat_max,++lon_max")
 
     parser.add_argument(prefix+"l",prefix*2+"link",
-                        metavar='',default=None,
+                        metavar='',default=DEFAULT_VAL["link"],
                         type=str,
                         help="link directo de busqueda. (A veces el grupo"+\
                             " de sistemas envia un link donde los paramateros ya estan definidos. )"+\
                             "Se debe definir ++type según sea el tipo de busqueda.")
     
     parser.add_argument(prefix+"e",prefix*2+"editar",
-                        metavar='',default="false",
+                        metavar='',default=DEFAULT_VAL["editar"],
                         type=str,
                         choices={"true", "false","True", "False"},
                         help="True para editar cosas generales del cuerpo del mensaje."+\
@@ -82,168 +91,179 @@ def read_args():
                             "Sirve para agregar o quitar datos adicionales a la plantilla.")
 
     parser.add_argument(prefix+"c",prefix*2+"comprobar",
-                        metavar='',default="true",
+                        metavar='',default=DEFAULT_VAL["comprobar"],
                         choices={"true", "false","True", "False"},
                         type=str,
                         help="True para comprobar el cuerpo del mensaje.")
     
     parser.add_argument(prefix+"ig",prefix*2+"info_guardado",
-                        metavar='',default="false",
+                        metavar='',default=DEFAULT_VAL["info_guardado"],
                         choices={"true", "false","True", "False"},
                         type=str,
                         help="True para ver los que estan guardados.")
 
+    parser.add_argument(prefix+"ir",prefix*2+"info_reporte",
+                        metavar='',default=DEFAULT_VAL["info_reporte"],
+                        type=str,
+                        help="Nombre del reporte que desea tener la información.")
+
     parser.add_argument(prefix+"nav",prefix*2+"navegador",
-                        metavar='',default="",
+                        metavar='',default=DEFAULT_VAL["navegador"],
                         choices={"true", "false","True", "False"},
                         type=str,
                         help="True para abrir navegador")
 
     parser.add_argument(prefix+"magm",prefix*2+"mag_min",
-                        metavar='',default=None,
+                        metavar='',default=DEFAULT_VAL["mag_min"],
                         type=float,
                         help="Magnitud minima.")
 
     parser.add_argument(prefix+"magM",prefix*2+"mag_max",
-                        metavar='',default=None,
+                        metavar='',default=DEFAULT_VAL["mag_max"],
                         type=float,
                         help="Magnitud maxima.")
 
     parser.add_argument(prefix+"profm",prefix*2+"prof_min",
-                        metavar='',default=None,
+                        metavar='',default=DEFAULT_VAL["prof_min"],
                         type=float,
                         help="Profundidad minima.")
 
     parser.add_argument(prefix+"profM",prefix*2+"prof_max",
-                        metavar='',default=None,
+                        metavar='',default=DEFAULT_VAL["prof_max"],
                         type=float,
                         help="Profundidad maxima.")
-
     parser.add_argument(prefix+"rmsm",prefix*2+"rms_min",
-                        metavar='',default=None,
+                        metavar='',default=DEFAULT_VAL["rms_min"],
                         type=float,
                         help="rms minimo.")
 
     parser.add_argument(prefix+"rmsM",prefix*2+"rms_max",
-                        metavar='',default=None,
+                        metavar='',default=DEFAULT_VAL["rms_max"],
                         type=float,
                         help="rms maxima.")
 
     parser.add_argument(prefix+"gapm",prefix*2+"gap_min",
-                        metavar='',default=None,
+                        metavar='',default=DEFAULT_VAL["gap_min"],
                         type=float,
                         help="gap minimo.")
 
     parser.add_argument(prefix+"gapM",prefix*2+"gap_max",
-                        metavar='',default=None,
+                        metavar='',default=DEFAULT_VAL["gap_max"],
                         type=float,
                         help="gap maxima.")
 
     parser.add_argument(prefix+"eprofm",prefix*2+"eprof_min",
-                        metavar='',default=None,
+                        metavar='',default=DEFAULT_VAL["eprof_min"],
                         type=float,
                         help="Error minimo en profundidad.")
 
     parser.add_argument(prefix+"eprofM",prefix*2+"eprof_max",
-                        metavar='',default=None,
+                        metavar='',default=DEFAULT_VAL["eprof_max"],
                         type=float,
                         help="Error maximo en profundidad.")
 
     parser.add_argument(prefix+"elonm",prefix*2+"elon_min",
-                        metavar='',default=None,
+                        metavar='',default=DEFAULT_VAL["elon_min"],
                         type=float,
                         help="Error minimo en longitud.")
 
     parser.add_argument(prefix+"elonM",prefix*2+"elon_max",
-                        metavar='',default=None,
+                        metavar='',default=DEFAULT_VAL["elon_max"],
                         type=float,
                         help="Error maximo en longitud.")
 
     parser.add_argument(prefix+"elatm",prefix*2+"elat_min",
-                        metavar='',default=None,
+                        metavar='',default=DEFAULT_VAL["elat_min"],
                         type=float,
                         help="Error minimo en latitud.")
 
     parser.add_argument(prefix+"elatM",prefix*2+"elat_max",
-                        metavar='',default=None,
+                        metavar='',default=DEFAULT_VAL["elat_max"],
                         type=float,
                         help="Error maximo en latitud.")
 
+
+
     parser.add_argument(prefix+"d",prefix*2+"destinatarios",
-                        metavar='',default= None,
+                        metavar='',default= DEFAULT_VAL["destinatarios"],
                         nargs='+',
                         # type=list,
                         help= "Lista de correos a quienes se les va a enviar el reporte."+\
                                 " Ejemplo: 'ecastillo@sgc.gov.co' 'rsncol@sgc.gov.co' ")
     
     parser.add_argument(prefix+"gg",prefix*2+"guardar",
-                        metavar='', default= "true",
+                        metavar='', default= DEFAULT_VAL["guardar"],
                         choices={"true", "false","True", "False"},
                         type=str,
                         help= "True para guardar la busqueda")
 
     parser.add_argument(prefix+"latc",prefix*2+"lat_central",
-                        metavar='',default=None,
+                        metavar='',default=DEFAULT_VAL["lat_central"],
                         type=float,
                         help="Latitud central para tipo radial.")
 
     parser.add_argument(prefix+"lonc",prefix*2+"lon_central",
-                        metavar='',default=None,
+                        metavar='',default=DEFAULT_VAL["lon_central"],
                         type=float,
                         help="Longitud central para tipo radial.")
 
     parser.add_argument(prefix+"r",prefix*2+"radio",
-                        metavar='',default=None,
+                        metavar='',default=DEFAULT_VAL["radio"],
                         type=float,
                         help="Radio para tipo radial.")
 
     parser.add_argument(prefix+"latm",prefix*2+"lat_min",
-                        metavar='',default=None,
+                        metavar='',default=DEFAULT_VAL["lat_min"],
                         type=float,
                         help="Latitud minima para tipo cuadrante.")
 
     parser.add_argument(prefix+"latM",prefix*2+"lat_max",
-                        metavar='',default=None,
+                        metavar='',default=DEFAULT_VAL["lat_max"],
                         type=float,
                         help="Latitud maxima para tipo cuadrante.")
 
     parser.add_argument(prefix+"lonm",prefix*2+"lon_min",
-                        metavar='',default=None,
+                        metavar='',default=DEFAULT_VAL["lon_min"],
                         type=float,
                         help="Longitud minima para tipo cuadrante.")
 
     parser.add_argument(prefix+"lonM",prefix*2+"lon_max",
-                        metavar='',default=None,
+                        metavar='',default=DEFAULT_VAL["lon_max"],
                         type=float,
                         help="Longitud maxima para tipo cuadrante.")
 
-    parser.add_argument(prefix+"-debug",
-                        metavar='',default=None,
+    parser.add_argument(prefix+"debug",
+                        metavar='',default=DEFAULT_VAL["debug"],
                         help= "Muestra toda la información del proceso de la rutina")
 
     args = parser.parse_args()
 
 
-    ### comprobamos que las variables se guarden en los formatos adecuados
-    str_args = ['fecha_ini','fecha_fin','nombre','type','guardado','guardar',
-                'editar','comprobar','navegador','info_guardado']
-    list_args = ['destinatarios']
-    float_args = ['mag_max','mag_min','prof_min','prof_max','rms_min','rms_max',
-                'gap_min','gap_max','eprof_min','eprof_max','elon_min','elon_max',
-                'elat_min','elat_max','lat_central','lon_central','radio',
-                'lat_min','lat_max','lon_min','lon_max']
+    def check_variables(args):
 
-    order = [str,list,float]
-    order_args = [str_args,list_args,float_args]
-    vars_args = vars(args)
-    
-    for i, type_args in enumerate(order_args):
-        for arg in type_args: 
-            if arg in vars_args:
-                if isinstance(vars_args[arg],order[i]):
-                    args_msg = f'{arg}-{vars_args[arg]}-{str(order[i])}-"Ok"'
-                    ut.printlog("debug","Argumetos",args_msg)
-                    # print(arg,vars_args[arg],str(order[i]),"Ok") 
+        ### comprobamos que las variables se guarden en los formatos adecuados
+        str_args = ['fecha_ini','fecha_fin','nombre','type','guardado','guardar',
+                    'editar','comprobar','navegador','info_guardado',"info_reporte"]
+        list_args = ['destinatarios']
+        float_args = ['mag_max','mag_min','prof_min','prof_max','rms_min','rms_max',
+                    'gap_min','gap_max','eprof_min','eprof_max','elon_min','elon_max',
+                    'elat_min','elat_max','lat_central','lon_central','radio',
+                    'lat_min','lat_max','lon_min','lon_max']
+
+        order = [str,list,float]
+        order_args = [str_args,list_args,float_args]
+        vars_args = vars(args)
+        
+        for i, type_args in enumerate(order_args):
+            for arg in type_args: 
+                if arg in vars_args:
+                    if isinstance(vars_args[arg],order[i]):
+                        args_msg = f'{arg}-{vars_args[arg]}-{str(order[i])}-"Ok"'
+                        ut.printlog("debug","Argumetos",args_msg)
+                        # print(arg,vars_args[arg],str(order[i]),"Ok") 
+        return vars_args
+
+    vars_args = check_variables(args)
 
     #Si info_guardado == True muestre los archivos que estan guardados.
 
@@ -258,16 +278,37 @@ def read_args():
     else: 
         raise Exception("info_guardado: True o False")
 
+    # Muestre la info del reporte
+    if vars_args['info_reporte'] != None:
+        # try:
+        jsonfile = os.path.join(os.getcwd(),"reportes",vars_args['info_reporte']+".json")
+        with open(jsonfile) as jf:
+            saved_args = json.load(jf)[0]
+        print(saved_args)
+        exit()
+
     # #CONDICIONAL 1: Veamos que pasa si esta o no esta guardado
     #       1)si: Lea el json donde esta guardado
     #       2)no: Toca asegurarse que otras variable esten defindias
     #       3) Solo se puede si o no.
+    # Las variables extra en la línea de comando son tomadas en cuenta
+
     if vars_args['guardado'].lower() in ("true","t"):
         if vars_args['nombre'] != None:
             jsonfile = os.path.join(os.getcwd(),"reportes",vars_args['nombre']+".json")
             with open(jsonfile) as jf:
-                vars_args = json.load(jf)[0]
-                vars_args["guardado"] = "true"
+                saved_args = json.load(jf)[0]
+                saved_args["guardado"] = "true"
+
+                # tenga en cuenta las líneas que el usuario digito en el comando
+                for key,value in vars_args.items():
+                    if value != DEFAULT_VAL[key]:
+                        saved_args[key] = value
+                        ut.printlog("INFO","init_changes",f"{key}={saved_args[key]}")
+                    else:
+                        pass
+                vars_args = saved_args
+
         else:
             raise Exception("Se necesita definir ++nombre")
     elif vars_args['guardado'].lower() in ("false","f"):
@@ -332,6 +373,8 @@ def read_args():
 
         elif date == "hoy":
             mydate = dt.datetime.today()
+        else:
+            raise Exception("Fechas mal digitadas")
         return mydate
 
     class Busqueda(object):
@@ -366,7 +409,6 @@ def make_report(busqueda):
     ---------
 
     """
-    print(busqueda.navegador.lower())
     if busqueda.navegador.lower() in ("true","t"):
         hide = False
     else: 
@@ -434,6 +476,7 @@ if __name__ == "__main__":
                         datefmt='%m-%d %H:%M')
     print("\n\n")
     busqueda = read_args()
+    # print(busqueda.__dict__)
     enviar_reporte(busqueda)
 
     
