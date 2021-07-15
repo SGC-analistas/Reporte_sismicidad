@@ -3,7 +3,7 @@
 #  * @email ecastillot@unal.edu.co / ecastillo@sgc.gov.co
 #  * @create date 2021-06-08 11:39:32
 #  * @modify date 2021-06-19 18:13:10
-#  * @desc [description]
+#  * @desc description]
 #  */
 
 import os
@@ -13,14 +13,14 @@ import argparse
 import utils as ut
 import datetime as dt
 
-DEFAULT_VAL = {"guardado":"false","nombre":None,"asunto":None,"fecha_ini":None,"fecha_fin":None,
+DEFAULT_VAL = {"guardado":"true","nombre":None,"asunto":None,"fecha_ini":None,"fecha_fin":None,
                 "type":None,"link":None,"editar":"false","comprobar":"true","info_guardado":"false",
                 "navegador":"","mag_min":None,"mag_max":None,"prof_min":None,"prof_max":None,
                 "rms_min":None,"rms_max":None,"gap_min":None,"gap_max":None,"eprof_min":None,
                 "eprof_max":None,"elon_min":None,"elon_max":None,"elat_min":None,"elat_max":None,
                 "destinatarios":None,"guardar":"true","lat_central":None,"lon_central":None,
                 "radio":None,"lat_min":None,"lat_max":None,"lon_min":None,"lon_max":None,
-                "info_reporte":None,"debug":None}
+                "info_reporte":None}
 
 def read_args():
     prefix = "+"
@@ -42,7 +42,7 @@ def read_args():
                         default=DEFAULT_VAL["guardado"],
                         metavar='',
                         choices={"true", "false","True", "False"},
-                        help="True para coger una busqueda guardada", required = True)
+                        help="True para coger una busqueda guardada")
 
     parser.add_argument(prefix+"n",prefix*2+"nombre",
                         metavar='', default=DEFAULT_VAL["nombre"],
@@ -231,10 +231,6 @@ def read_args():
                         metavar='',default=DEFAULT_VAL["lon_max"],
                         type=float,
                         help="Longitud maxima para tipo cuadrante.")
-
-    parser.add_argument(prefix+"debug",
-                        metavar='',default=DEFAULT_VAL["debug"],
-                        help= "Muestra toda la información del proceso de la rutina")
 
     args = parser.parse_args()
 
@@ -474,10 +470,10 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO,
                         format='%(asctime)s [%(levelname)s] [%(name)s] %(message)s',
                         datefmt='%m-%d %H:%M')
-    print("\n\n")
+    print("\n")
     busqueda = read_args()
     # print(busqueda.__dict__)
-    enviar_reporte(busqueda)
+    # enviar_reporte(busqueda)
 
     
     # python enviar_reporte.py +g no +n quetame +a Prueba:reporte_quetame +d ecastillo@sgc.gov.co +fi v +ff hoy +t radial +latc 4.33 +lonc -73.86 +r 100 +gg False

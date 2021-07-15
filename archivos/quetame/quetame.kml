@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://earth.google.com/kml/2.1">
  <Document>
-<name>Sismos RSNC</name>
-<atom:author><atom:name>Serivio Geologico Colombiano</atom:name></atom:author>
 <Style id="puntoamarillo1">
 <IconStyle>
  <scale>0.3</scale>
@@ -203,13 +201,41 @@
 </Icon>
 </IconStyle>
 </Style>
- <Placemark id="sismoSGC2021njakys">
- <description>Region: Puerto Gaitán - Meta, Colombia  Fecha Hora UTC: 2021-07-09 01:05:41 Magnitud: 2.1  Profundidad: 0Km</description>
-<styleUrl>#puntorojo1</styleUrl>
+<Style id="marker">
+<IconStyle>
+<scale>1.0</scale>
+<Icon>
+<href>http://bdrsnc.sgc.gov.co/paginas1/catalogo/marker.png</href>
+</Icon>
+</IconStyle>
+</Style>
+ <Placemark id="Quetame1">
+ <description>Municipio Quetame (4.33,-73.86)   </description>
+ <styleUrl>#marker</styleUrl>
  <Point>
- <coordinates>-71.7545,4.000833333</coordinates>
+ <coordinates>-73.862778,4.330278</coordinates>
  </Point>
  </Placemark>
-<ScreenOverlay><name>Legend</name><Icon><href>http://bdrsnc.sgc.gov.co/sismologia1/images/leyenda_sismos.png</href></Icon><overlayXY x="0" y="380" xunits="pixels" yunits="pixels"/><screenXY x="5" y="1" xunits="pixels" yunits="fraction"/><rotationXY x="0" y="0" xunits="pixels" yunits="pixels"/><size x="0" y="0" xunits="pixels" yunits="pixels"/></ScreenOverlay>
+ <Placemark id="sismoSGC2021nqpjcm">
+ <description>Region: Cubarral - Meta, Colombia Magnitud: 1.4  Profundidad: 15Km  Hora Local: 2021-07-12 23:07:27  Latitud: 3.76  Longitud: -73.99</description>
+<styleUrl>#puntorojo1</styleUrl>
+ <Point>
+ <coordinates>-73.99,3.76</coordinates>
+ </Point>
+ </Placemark>
+ <Placemark id="sismoSGC2021nqvhbp">
+ <description>Region: Gachalá - Cundinamarca, Colombia Magnitud: 1.8  Profundidad: 13Km  Hora Local: 2021-07-13 02:06:04  Latitud: 4.74  Longitud: -73.41</description>
+<styleUrl>#puntorojo1</styleUrl>
+ <Point>
+ <coordinates>-73.41,4.74</coordinates>
+ </Point>
+ </Placemark>
+ <Placemark id="sismoSGC2021nsvfxe">
+ <description>Region: Macanal - Boyacá, Colombia Magnitud: 1.8  Profundidad: 19Km  Hora Local: 2021-07-14 04:13:40  Latitud: 5.02  Longitud: -73.32</description>
+<styleUrl>#puntorojo1</styleUrl>
+ <Point>
+ <coordinates>-73.32,5.02</coordinates>
+ </Point>
+ </Placemark>
  </Document>
 </kml>

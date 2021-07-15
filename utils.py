@@ -26,6 +26,9 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
+from colorama import init,Fore, Back, Style
+
+init(autoreset=True)
 
 ejecutar = "virtualenv"
 if ejecutar == "virtualenv":
@@ -413,7 +416,7 @@ def prepare_report(busqueda):
 
 
 
-    if os.path.isfile(reportes_path ) == True and (busqueda["guardado"].lower() in ("true","t")):
+    if os.path.isfile(reportes_path ) == True and (busqueda["guardar"].lower() in ("true","t")):
 
         while True:
             printlog("warning","Reporte",f"El nombre {busqueda['nombre']} ya fue creado. Quiere sobrescribir la informacion")
@@ -428,9 +431,9 @@ def prepare_report(busqueda):
             else:
                 pass
     
-    elif os.path.isfile(reportes_path ) == True and (busqueda["guardado"].lower() in ("false","f")):
+    elif os.path.isfile(reportes_path ) == True and (busqueda["guardar"].lower() in ("false","f")):
         return None
-    elif os.path.isfile(reportes_path ) == False and (busqueda["guardado"].lower() in ("true","t")):
+    elif os.path.isfile(reportes_path ) == False and (busqueda["guardar"].lower() in ("true","t")):
         raise Exception(f"No tiene creado un reporte con el nombre {busqueda['nombre']}")
     else :
         seguro = "1"
@@ -464,6 +467,8 @@ def prepare_report(busqueda):
         tojson = busqueda.copy()
         tojson["fecha_inicial"] = tojson["fecha_ini"]
         tojson["fecha_final"] = tojson["fecha_fin"]
+        tojson["guardar"] = "false"
+        tojson["info_guardado"] = "false"
         with open(reportes_path,"w") as jsonfile:
             json.dump([tojson], jsonfile)
         printlog("info","guardar","busqueda")
@@ -523,7 +528,7 @@ def email( busqueda,resultados):
         destinatarios = "ecastillo@sgc.gov.co"
         printlog("info","Problema",f"Desea informar el problema? -> {destinatarios}.")
         while True:
-            print("\t1","[si]","    "+ "0","[no]"  )
+            print("\n\t1","[si]","    "+ "0","[no]"  )
             p = input()
             if p == "1":
                 os.system(f"nano {problema_msg_path}")
@@ -569,22 +574,25 @@ def email( busqueda,resultados):
     if busqueda["comprobar"] != None:
         if busqueda["comprobar"].lower() in ("true","t"):
             if resultados['sismos'] != 0:
-                print("\n")
+                ast = "#"
                 printlog("info","Reporte-comprobar",f"Datos de los sismos")
+                print(Fore.GREEN +  f" \n\n{ast*25} INFORMACION {ast*25}\n ")
                 excel_file= pd.read_excel(   os.path.join( files_folder_path,
                                                     f"{busqueda['nombre']}.xlsx"))
-                print(excel_file.iloc[:,:4])
-                print("\n")
+
+                with pd.option_context('display.max_rows', None):  # more options can be specified also
+                    print(excel_file.iloc[:,:2])
+                print(Fore.GREEN + f" \n\n{ast*62}\n ")
 
             ast = "#"
             printlog("info","Reporte-comprobar",f"El mensaje es el siguiente:")
-            print(f" \n\n{ast*60}\n ")
+            print(Fore.CYAN  + f" \n\n{ast*28} MENSAJE {ast*28}\n ")
             print(html2text.html2text(mensaje))
-            print(f"\n{ast*60}\n ")
+            print(Fore.CYAN  + f"\n{ast*62}\n ")
 
     printlog("info","Correo",f"Desea enviar correos? -> {destinatarios}") 
     while True:
-        print("1","[si]","    "+ "0","[no]"  )
+        print("\n\t1","[si]","    "+ "0","[no]"  )
         p = input()
         if p == "1": 
             break   
@@ -593,7 +601,7 @@ def email( busqueda,resultados):
             destinatarios = "ecastillo@sgc.gov.co"
             printlog("info","Problema",f"Desea informar el problema?-> {destinatarios}.")
             while True:
-                print("\t1","[si]","    "+ "0","[no]"  )
+                print("\n\t1","[si]","    "+ "0","[no]"  )
                 c = input()
                 if c == "1":
                     os.system(f"nano {problema_msg_path}")
@@ -643,8 +651,6 @@ def email( busqueda,resultados):
     server.quit()
 
     printlog("info","Correo",f"Correo enviado a: {destinatarios}.\n")
-
-
 
 if __name__ == "__main__":
     print("archivos utiles para poder hacer busqueda y enviar correos")
