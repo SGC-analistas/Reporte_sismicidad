@@ -30,6 +30,16 @@ python3.8 -m venv .reporte
 source .reporte/bin/activate
 pip install -r requirements.txt
 ```
+#### IMPORTANTE
+ESCRIBIR LO SIGUIENTE
+```bash
+nano /opt/rutinas/.reporte/lib/python3.7/site-packages/openpyxl/styles/colors.py 
+```
+Comentar las siguientes lineas dentro de la Clase RGB con un '#':
+```bash
+#if m is None:
+  #raise ValueError("Colors must be aRGB hex values")
+```
 
 ## 2. Comandos
 Al digitar 
