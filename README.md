@@ -83,12 +83,12 @@ Pueden obaservar la siguiente ayuda:
 #### cuadrante
 1) Puerto Gaitán 
 ```bash 
-python reporte.py +g false +gg true +n puerto_gaitan +a "Reporte de sismicidad alrededor del municipio de Puerto Gaitan" +d mcalvache@sgc.gov.co ldionicio@sgc.gov.co ppedraza@sgc.gov.co mlizarazo@sgc.gov.co omercado@sgc.gov.co emayorga@sgc.gov.co  +fi V +ff hoy +t cuadrante +latm 3.42 +latM 4.41 +lonm -72.15 +lonM -70.84 +e True +c True
+python reporte.py +g false +n puerto_gaitan +a "Reporte de sismicidad alrededor del municipio de Puerto Gaitan" +d mcalvache@sgc.gov.co ldionicio@sgc.gov.co ppedraza@sgc.gov.co mlizarazo@sgc.gov.co omercado@sgc.gov.co emayorga@sgc.gov.co  +fi V +ff hoy +t cuadrante +latm 3.42 +latM 4.41 +lonm -72.15 +lonM -70.84 +e True +c True
  ```
 
 #### radial
 ```bash 
-python reporte.py +g false +gg true +n puerto_gaitan +a "Reporte radial" +d mcalvache@sgc.gov.co ldionicio@sgc.gov.co ppedraza@sgc.gov.co mlizarazo@sgc.gov.co omercado@sgc.gov.co emayorga@sgc.gov.co  +fi V +ff hoy +t radial+latc 4.33 +lonc -73.86 +r 1004 +e True +c True
+python reporte.py +g false +n quetame +a "Reporte radial" +d mcalvache@sgc.gov.co ldionicio@sgc.gov.co ppedraza@sgc.gov.co mlizarazo@sgc.gov.co omercado@sgc.gov.co emayorga@sgc.gov.co  +fi V +ff hoy +t radial+latc 4.33 +lonc -73.86 +r 1004 +e True +c True
  ```
 
 
@@ -104,7 +104,7 @@ python reporte.py +g false +gg true +n quetame +a "Reporte de sismicidad alreded
 Una vez el reporte haya sido guardado, el resto de veces se puede enviar del siguiente modo:
 
 ```bash 
-python reporte.py +g True +n quetame
+python reporte.py +n quetame
 ```
 
 

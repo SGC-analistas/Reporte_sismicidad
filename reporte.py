@@ -10,17 +10,20 @@ import os
 import json
 import logging
 import argparse
+
+from colorama.ansi import Fore, Style
 import utils as ut
 import datetime as dt
+from collections import OrderedDict
 
 DEFAULT_VAL = {"guardado":"true","nombre":None,"asunto":None,"fecha_ini":None,"fecha_fin":None,
-                "type":None,"link":None,"editar":"false","comprobar":"true","info_guardado":"false",
+                "type":None,"link":None,"editar":"","eliminar":"false","comprobar":None,"info_guardado":"false",
                 "navegador":"","mag_min":None,"mag_max":None,"prof_min":None,"prof_max":None,
                 "rms_min":None,"rms_max":None,"gap_min":None,"gap_max":None,"eprof_min":None,
                 "eprof_max":None,"elon_min":None,"elon_max":None,"elat_min":None,"elat_max":None,
-                "destinatarios":None,"guardar":"true","lat_central":None,"lon_central":None,
+                "destinatarios":None,"guardar":"false","lat_central":None,"lon_central":None,
                 "radio":None,"lat_min":None,"lat_max":None,"lon_min":None,"lon_max":None,
-                "info_reporte":None}
+                "info_reporte":None,"ejemplo":None}
 
 def read_args():
     prefix = "+"
@@ -89,6 +92,12 @@ def read_args():
                         help="True para editar cosas generales del cuerpo del mensaje."+\
                             f"NO ELIMINE NI AGREGUE %%s. "+\
                             "Sirve para agregar o quitar datos adicionales a la plantilla.")
+
+    parser.add_argument(prefix+"rm",prefix*2+"eliminar",
+                        metavar='',default=DEFAULT_VAL["eliminar"],
+                        type=str,
+                        choices={"true", "false","True", "False"},
+                        help="True para eliminar el reporte")
 
     parser.add_argument(prefix+"c",prefix*2+"comprobar",
                         metavar='',default=DEFAULT_VAL["comprobar"],
@@ -182,8 +191,6 @@ def read_args():
                         type=float,
                         help="Error maximo en latitud.")
 
-
-
     parser.add_argument(prefix+"d",prefix*2+"destinatarios",
                         metavar='',default= DEFAULT_VAL["destinatarios"],
                         nargs='+',
@@ -232,6 +239,12 @@ def read_args():
                         type=float,
                         help="Longitud maxima para tipo cuadrante.")
 
+    parser.add_argument(prefix+"ejemplo",prefix*2+"ejemplo",
+                        metavar='',default=DEFAULT_VAL["ejemplo"],
+                        choices={"crear_consulta","editar_consulta", "enviar_consulta"},
+                        type=str,
+                        help="Ejemplos-> crear_consulta, enviar_consulta")
+
     args = parser.parse_args()
 
 
@@ -255,13 +268,83 @@ def read_args():
                 if arg in vars_args:
                     if isinstance(vars_args[arg],order[i]):
                         args_msg = f'{arg}-{vars_args[arg]}-{str(order[i])}-"Ok"'
-                        ut.printlog("debug","Argumetos",args_msg)
+                        ut.printlog("debug","Argumentos",args_msg)
                         # print(arg,vars_args[arg],str(order[i]),"Ok") 
         return vars_args
 
     vars_args = check_variables(args)
-
     #Si info_guardado == True muestre los archivos que estan guardados.
+
+    if vars_args["ejemplo"] != None:
+
+        if vars_args["ejemplo"] == "crear_consulta":
+            while True:
+                inp = input( Fore.GREEN + "[1] radial"+ "\t" +Fore.BLUE+"[2] cuadrante"+\
+                 "\t"+Fore.YELLOW+"[3] link"+ Style.RESET_ALL+"\n")
+                if inp == "1":
+                    msg = 'python reporte.py'+\
+                        Fore.RED + ' +g'+Style.RESET_ALL+ ' false'+\
+                        Fore.RED + ' +gg'+Style.RESET_ALL+' true'+\
+                        Fore.RED + ' +n'+Style.RESET_ALL+' quetame'+\
+                        Fore.RED + ' +a'+Style.RESET_ALL+' "Reporte_radial"'+\
+                        Fore.RED + ' +t'+Style.RESET_ALL+' radial'+\
+                        Fore.RED + ' +d'+Style.RESET_ALL+' ecastillo@sgc.gov.co rsncol@sgc.gov.co'+\
+                        Fore.RED + ' +fi'+Style.RESET_ALL+' V'+\
+                        Fore.RED + ' +ff'+Style.RESET_ALL+' hoy'+\
+                        Fore.RED + ' +latc'+Style.RESET_ALL+' 4.33'+\
+                        Fore.RED + ' +lonc'+Style.RESET_ALL+' -73.86'+\
+                        Fore.RED + ' +r'+Style.RESET_ALL+' 100'+\
+                        Fore.RED + ' +e'+Style.RESET_ALL+' True'+\
+                        Fore.RED + ' +c'+Style.RESET_ALL+' True'
+                    break
+                elif inp == "2":
+                    msg = 'python reporte.py'+\
+                        Fore.RED + ' +g'+Style.RESET_ALL+ ' false'+\
+                        Fore.RED + ' +n'+Style.RESET_ALL+' puerto_gaitan'+\
+                        Fore.RED + ' +a'+Style.RESET_ALL+" Reporte_cuadrante"+\
+                        Fore.RED + ' +t'+Style.RESET_ALL+" cuadrante"+\
+                        Fore.RED + ' +d'+Style.RESET_ALL+' ecastillo@sgc.gov.co rsncol@sgc.gov.co'+\
+                        Fore.RED + ' +fi'+Style.RESET_ALL+' V'+\
+                        Fore.RED + ' +ff'+Style.RESET_ALL+' hoy'+\
+                        Fore.RED + ' +latm'+Style.RESET_ALL+' 3.42'+\
+                        Fore.RED + ' +latM'+Style.RESET_ALL+' 4.41'+\
+                        Fore.RED + ' +lonm'+Style.RESET_ALL+' -72.15'+\
+                        Fore.RED + ' +lonM'+Style.RESET_ALL+' -70.84'+\
+                        Fore.RED + ' +c'+Style.RESET_ALL+' True'
+                    break
+                elif inp == "3":
+                    msg = 'python reporte.py'+\
+                        Fore.RED + ' +g'+Style.RESET_ALL+ ' false'+\
+                        Fore.RED + ' +n'+Style.RESET_ALL+' quetame_link'+\
+                        Fore.RED + ' +a'+Style.RESET_ALL+" Reporte_link_radial"+\
+                        Fore.RED + ' +t'+Style.RESET_ALL+" radial"+\
+                        Fore.RED + ' +d'+Style.RESET_ALL+' ecastillo@sgc.gov.co rsncol@sgc.gov.co'+\
+                        Fore.RED + ' +fi'+Style.RESET_ALL+' V'+\
+                        Fore.RED + ' +ff'+Style.RESET_ALL+' hoy'+\
+                        Fore.RED + ' +l'+Style.RESET_ALL+' http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Quetame/consultaexperta.php'+\
+                        Fore.RED + ' +latc'+Style.RESET_ALL+' 4.33'+\
+                        Fore.RED + ' +lonc'+Style.RESET_ALL+' -73.86'+\
+                        Fore.RED + ' +r'+Style.RESET_ALL+' 100'+\
+                        Fore.RED + ' +c'+Style.RESET_ALL+' True'
+                    break
+                else: 
+                    pass
+            
+            print(msg+ Style.RESET_ALL)
+            exit()
+        elif vars_args["ejemplo"] == "editar_consulta":
+            msg = 'python reporte.py'+\
+                Fore.RED + ' +n'+Style.RESET_ALL+' quetame'+\
+                Fore.RED + ' +a'+Style.RESET_ALL+" editando_consulta"+\
+                Fore.RED + ' +d'+Style.RESET_ALL+' ecastillo@sgc.gov.co'
+            print(msg+ Style.RESET_ALL)
+            exit()
+        elif vars_args["ejemplo"] == "enviar_consulta":
+            msg = 'python reporte.py'+\
+                Fore.RED + ' +n'+Style.RESET_ALL+' quetame'
+            print(msg+ Style.RESET_ALL)
+            exit()
+
 
     if vars_args['info_guardado'].lower() in ("true","t"):
         reportes = os.path.join(os.getcwd(),"reportes")
@@ -280,7 +363,10 @@ def read_args():
         jsonfile = os.path.join(os.getcwd(),"reportes",vars_args['info_reporte']+".json")
         with open(jsonfile) as jf:
             saved_args = json.load(jf)[0]
-        print(saved_args)
+
+        saved_args = OrderedDict(sorted(saved_args.items()))
+        for k, v in saved_args.items():
+            print(k ,v)
         exit()
 
     # #CONDICIONAL 1: Veamos que pasa si esta o no esta guardado
@@ -473,7 +559,7 @@ if __name__ == "__main__":
     print("\n")
     busqueda = read_args()
     # print(busqueda.__dict__)
-    # enviar_reporte(busqueda)
+    enviar_reporte(busqueda)
 
     
     # python enviar_reporte.py +g no +n quetame +a Prueba:reporte_quetame +d ecastillo@sgc.gov.co +fi v +ff hoy +t radial +latc 4.33 +lonc -73.86 +r 100 +gg False

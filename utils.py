@@ -414,7 +414,10 @@ def prepare_report(busqueda):
     archivo_folder_path = os.path.join(os.getcwd(),"archivos",busqueda['nombre'].lower())
     reportes_path = os.path.join(os.getcwd(),"reportes",busqueda['nombre'].lower()+".json")
 
-
+    if busqueda["eliminar"] in (True,"true","True"):
+        os.system(f"rm -r  {correo_folder_path} {archivo_folder_path} {reportes_path}")
+        print(f"reporte: {busqueda['nombre']} eliminado.")
+        exit()
 
     if os.path.isfile(reportes_path ) == True and (busqueda["guardar"].lower() in ("true","t")):
 
@@ -433,7 +436,8 @@ def prepare_report(busqueda):
     
     elif os.path.isfile(reportes_path ) == True and (busqueda["guardar"].lower() in ("false","f")):
         return None
-    elif os.path.isfile(reportes_path ) == False and (busqueda["guardar"].lower() in ("true","t")):
+    elif os.path.isfile(reportes_path ) == False and (busqueda["guardar"].lower() in ("true","t"))\
+        and (busqueda["guardado"].lower() in ("true","t")):
         raise Exception(f"No tiene creado un reporte con el nombre {busqueda['nombre']}")
     else :
         seguro = "1"
