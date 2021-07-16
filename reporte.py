@@ -24,6 +24,7 @@ DEFAULT_VAL = {"guardado":"true","nombre":None,"asunto":None,"fecha_ini":None,"f
                 "destinatarios":None,"guardar":"false","lat_central":None,"lon_central":None,
                 "radio":None,"lat_min":None,"lat_max":None,"lon_min":None,"lon_max":None,
                 "info_reporte":None,"ejemplo":None}
+cwd = os.path.dirname(__file__)
 
 def read_args():
     prefix = "+"
@@ -347,7 +348,7 @@ def read_args():
 
 
     if vars_args['info_guardado'].lower() in ("true","t"):
-        reportes = os.path.join(os.getcwd(),"reportes")
+        reportes = os.path.join(cwd,"reportes")
         listall = os.listdir(reportes)
         onlyfiles = [f.split(".")[0] for f in listall if os.path.isfile(os.path.join(reportes, f))]
         ut.printlog("INFO","guardados",onlyfiles)
@@ -360,7 +361,7 @@ def read_args():
     # Muestre la info del reporte
     if vars_args['info_reporte'] != None:
         # try:
-        jsonfile = os.path.join(os.getcwd(),"reportes",vars_args['info_reporte']+".json")
+        jsonfile = os.path.join(cwd,"reportes",vars_args['info_reporte']+".json")
         with open(jsonfile) as jf:
             saved_args = json.load(jf)[0]
 
@@ -377,7 +378,7 @@ def read_args():
 
     if vars_args['guardado'].lower() in ("true","t"):
         if vars_args['nombre'] != None:
-            jsonfile = os.path.join(os.getcwd(),"reportes",vars_args['nombre']+".json")
+            jsonfile = os.path.join(cwd,"reportes",vars_args['nombre']+".json")
             with open(jsonfile) as jf:
                 saved_args = json.load(jf)[0]
                 saved_args["guardado"] = "true"
@@ -513,7 +514,7 @@ def make_report(busqueda):
                                         min_error_lon=busqueda.elon_min,max_error_lon=busqueda.elon_max,
                                         min_error_lat=busqueda.elat_min,max_error_lat=busqueda.elat_max,
                                         hide_driver=hide)
-        resultados = query.go2query(os.path.join(os.getcwd(),"archivos",busqueda.nombre))
+        resultados = query.go2query(os.path.join(cwd,"archivos",busqueda.nombre))
 
     elif busqueda.type == "cuadrante":
         if busqueda.link != None:
@@ -530,7 +531,7 @@ def make_report(busqueda):
                                     min_error_lon=busqueda.elon_min,max_error_lon=busqueda.elon_max,
                                     min_error_lat=busqueda.elat_min,max_error_lat=busqueda.elat_max,
                                     hide_driver=hide)
-        resultados = query.go2query(os.path.join(os.getcwd(),"archivos",busqueda.nombre))
+        resultados = query.go2query(os.path.join(cwd,"archivos",busqueda.nombre))
 
     else:
         raise Exception(f"type:{busqueda.type} no esta definido. Solo radial o cuadrante")

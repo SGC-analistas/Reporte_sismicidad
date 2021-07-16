@@ -29,6 +29,7 @@ from email import encoders
 from colorama import init,Fore, Back, Style
 
 init(autoreset=True)
+cwd = os.path.dirname(__file__)
 
 ejecutar = "virtualenv"
 if ejecutar == "virtualenv":
@@ -409,10 +410,10 @@ def get_last_day(str_day):
     return last_day
 
 def prepare_report(busqueda):
-    correo_folder_path = os.path.join(os.getcwd(),"correos",busqueda['nombre'].lower())
-    template_folder_path = os.path.join(os.getcwd(),"correos","template")
-    archivo_folder_path = os.path.join(os.getcwd(),"archivos",busqueda['nombre'].lower())
-    reportes_path = os.path.join(os.getcwd(),"reportes",busqueda['nombre'].lower()+".json")
+    correo_folder_path = os.path.join(cwd,"correos",busqueda['nombre'].lower())
+    template_folder_path = os.path.join(cwd,"correos","template")
+    archivo_folder_path = os.path.join(cwd,"archivos",busqueda['nombre'].lower())
+    reportes_path = os.path.join(cwd,"reportes",busqueda['nombre'].lower()+".json")
 
     if busqueda["eliminar"] in (True,"true","True"):
         os.system(f"rm -r  {correo_folder_path} {archivo_folder_path} {reportes_path}")
@@ -499,9 +500,9 @@ def email( busqueda,resultados):
     Enviar correo
     """
     #paths
-    files_folder_path = os.path.join(os.getcwd(),'archivos', busqueda['nombre'].lower())
-    emails_folder_path = os.path.join(os.getcwd(),'correos', busqueda['nombre'].lower())
-    json_path = os.path.join(os.getcwd(),'reportes', busqueda['nombre'].lower()+".json")
+    files_folder_path = os.path.join(cwd,'archivos', busqueda['nombre'].lower())
+    emails_folder_path = os.path.join(cwd,'correos', busqueda['nombre'].lower())
+    json_path = os.path.join(cwd,'reportes', busqueda['nombre'].lower()+".json")
 
     remitente_path = os.path.join(emails_folder_path, 'remitente.txt')
     problema_path = os.path.join(emails_folder_path, 'problema.html')
