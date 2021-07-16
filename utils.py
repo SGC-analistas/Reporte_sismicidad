@@ -188,7 +188,7 @@ class SquareQuery(object):
         send_key_to_container_main(driver,"elatmin",self.min_error_lat)
         send_key_to_container_main(driver,"elatmax",self.max_error_lat)
 
-        locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
+        # locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
         starttime =  get_day(driver,'inicial')
         endtime =  get_day(driver,'final')
 

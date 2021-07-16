@@ -2559,3 +2559,21 @@ JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.m
 JavaScript error: http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Seiscomp/consulta_sismo.php, line 37: SyntaxError: missing } after property list
 JavaScript note: http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Seiscomp/consulta_sismo.php, line 35: { opened at line 35, column 37
 1626447818374	Marionette	INFO	Stopped listening on port 44261
+1626450301875	geckodriver	INFO	Listening on 127.0.0.1:41965
+1626450301885	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileUnGGoZ"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1626450306622	Marionette	INFO	Listening on port 42495
+1626450306696	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/URIFixup.jsm, line 271: NS_ERROR_FAILURE: Should pass a non-null uri
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+1626450323237	Marionette	INFO	Stopped listening on port 42495
+1626450345702	geckodriver	INFO	Listening on 127.0.0.1:52317
+1626450345712	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileKgRtNh"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1626450350446	Marionette	INFO	Listening on port 42657
+1626450350524	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/URIFixup.jsm, line 271: NS_ERROR_FAILURE: Should pass a non-null uri
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+JavaScript error: http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Seiscomp/consulta_sismo.php, line 37: SyntaxError: missing } after property list
+JavaScript note: http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Seiscomp/consulta_sismo.php, line 35: { opened at line 35, column 37
+1626450363088	Marionette	INFO	Stopped listening on port 42657
