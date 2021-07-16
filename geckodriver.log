@@ -2577,3 +2577,126 @@ JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.m
 JavaScript error: http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Seiscomp/consulta_sismo.php, line 37: SyntaxError: missing } after property list
 JavaScript note: http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Seiscomp/consulta_sismo.php, line 35: { opened at line 35, column 37
 1626450363088	Marionette	INFO	Stopped listening on port 42657
+1626451025907	geckodriver	INFO	Listening on 127.0.0.1:50988
+1626451025913	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile1SYs6w"
+*** You are running in headless mode.
+
+(firefox:21383): GLib-GObject-WARNING **: invalid (NULL) pointer instance
+
+(firefox:21383): GLib-GObject-CRITICAL **: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+
+(/usr/lib/firefox/firefox:21442): GLib-GObject-WARNING **: invalid (NULL) pointer instance
+
+(/usr/lib/firefox/firefox:21442): GLib-GObject-CRITICAL **: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+
+(/usr/lib/firefox/firefox:21587): GLib-GObject-WARNING **: invalid (NULL) pointer instance
+
+(/usr/lib/firefox/firefox:21587): GLib-GObject-CRITICAL **: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1626451027417	Marionette	INFO	Listening on port 38307
+1626451027549	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:21667): GLib-GObject-WARNING **: invalid (NULL) pointer instance
+
+(/usr/lib/firefox/firefox:21667): GLib-GObject-CRITICAL **: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+JavaScript error: http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Seiscomp/consulta_sismo.php, line 37: SyntaxError: missing } after property list
+JavaScript note: http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Seiscomp/consulta_sismo.php, line 35: { opened at line 35, column 37
+
+(firefox:21383): GLib-GObject-CRITICAL **: g_object_get: assertion 'G_IS_OBJECT (object)' failed
+
+(firefox:21383): GLib-GObject-CRITICAL **: g_object_get: assertion 'G_IS_OBJECT (object)' failed
+1626451047574	Marionette	INFO	Stopped listening on port 38307
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1626451145013	geckodriver	INFO	Listening on 127.0.0.1:48388
+1626451146022	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileMoZ9zP"
+*** You are running in headless mode.
+
+(firefox:21898): GLib-GObject-WARNING **: invalid (NULL) pointer instance
+
+(firefox:21898): GLib-GObject-CRITICAL **: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+
+(/usr/lib/firefox/firefox:22052): GLib-GObject-WARNING **: invalid (NULL) pointer instance
+
+(/usr/lib/firefox/firefox:22052): GLib-GObject-CRITICAL **: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+
+(/usr/lib/firefox/firefox:22078): GLib-GObject-WARNING **: invalid (NULL) pointer instance
+
+(/usr/lib/firefox/firefox:22078): GLib-GObject-CRITICAL **: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1626451147640	Marionette	INFO	Listening on port 34083
+
+(/usr/lib/firefox/firefox:22153): GLib-GObject-WARNING **: invalid (NULL) pointer instance
+
+(/usr/lib/firefox/firefox:22153): GLib-GObject-CRITICAL **: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+1626451147753	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+JavaScript error: http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Seiscomp/consulta_sismo.php, line 37: SyntaxError: missing } after property list
+JavaScript note: http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Seiscomp/consulta_sismo.php, line 35: { opened at line 35, column 37
+
+(firefox:21898): GLib-GObject-CRITICAL **: g_object_get: assertion 'G_IS_OBJECT (object)' failed
+
+(firefox:21898): GLib-GObject-CRITICAL **: g_object_get: assertion 'G_IS_OBJECT (object)' failed
+1626451166872	Marionette	INFO	Stopped listening on port 34083
+1626451238290	geckodriver	INFO	Listening on 127.0.0.1:49510
+1626451238296	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileNnUmnH"
+*** You are running in headless mode.
+
+(firefox:22342): GLib-GObject-WARNING **: invalid (NULL) pointer instance
+
+(firefox:22342): GLib-GObject-CRITICAL **: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+
+(/usr/lib/firefox/firefox:22475): GLib-GObject-WARNING **: invalid (NULL) pointer instance
+
+(/usr/lib/firefox/firefox:22475): GLib-GObject-CRITICAL **: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+
+(/usr/lib/firefox/firefox:22501): GLib-GObject-WARNING **: invalid (NULL) pointer instance
+
+(/usr/lib/firefox/firefox:22501): GLib-GObject-CRITICAL **: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1626451239803	Marionette	INFO	Listening on port 38833
+1626451239923	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:22578): GLib-GObject-WARNING **: invalid (NULL) pointer instance
+
+(/usr/lib/firefox/firefox:22578): GLib-GObject-CRITICAL **: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+JavaScript error: http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Seiscomp/consulta_sismo.php, line 37: SyntaxError: missing } after property list
+JavaScript note: http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Seiscomp/consulta_sismo.php, line 35: { opened at line 35, column 37
+
+(firefox:22342): GLib-GObject-CRITICAL **: g_object_get: assertion 'G_IS_OBJECT (object)' failed
+
+(firefox:22342): GLib-GObject-CRITICAL **: g_object_get: assertion 'G_IS_OBJECT (object)' failed
+1626451258133	Marionette	INFO	Stopped listening on port 38833
+1626451537332	geckodriver	INFO	Listening on 127.0.0.1:51371
+1626451537339	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilem2mCaN"
+*** You are running in headless mode.
+
+(firefox:23065): GLib-GObject-WARNING **: invalid (NULL) pointer instance
+
+(firefox:23065): GLib-GObject-CRITICAL **: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+
+(/usr/lib/firefox/firefox:23211): GLib-GObject-WARNING **: invalid (NULL) pointer instance
+
+(/usr/lib/firefox/firefox:23211): GLib-GObject-CRITICAL **: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+
+(/usr/lib/firefox/firefox:23237): GLib-GObject-WARNING **: invalid (NULL) pointer instance
+
+(/usr/lib/firefox/firefox:23237): GLib-GObject-CRITICAL **: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1626451538860	Marionette	INFO	Listening on port 45595
+1626451538968	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:23318): GLib-GObject-WARNING **: invalid (NULL) pointer instance
+
+(/usr/lib/firefox/firefox:23318): GLib-GObject-CRITICAL **: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+JavaScript error: https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css, line 1: SyntaxError: unexpected token: '{'
+JavaScript error: http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Seiscomp/consulta_sismo.php, line 37: SyntaxError: missing } after property list
+JavaScript note: http://bdrsnc.sgc.gov.co/paginas1/catalogo/Consulta_Experta_Seiscomp/consulta_sismo.php, line 35: { opened at line 35, column 37
+
+(firefox:23065): GLib-GObject-CRITICAL **: g_object_get: assertion 'G_IS_OBJECT (object)' failed
+
+(firefox:23065): GLib-GObject-CRITICAL **: g_object_get: assertion 'G_IS_OBJECT (object)' failed
+1626451558680	Marionette	INFO	Stopped listening on port 45595
