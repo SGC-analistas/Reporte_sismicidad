@@ -557,6 +557,7 @@ def email( busqueda,resultados):
 
             os.system(f"nano {mensaje_path}")
 
+            mensaje=open( mensaje_path).read()
 
         if busqueda['type'].lower() in ("radial"):
             mensaje = mensaje%(busqueda['radio'],
