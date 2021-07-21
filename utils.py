@@ -81,8 +81,8 @@ def get_web_preferences(download_folder,hide=False):
 
 def get_day(driver,name):
     mytime = driver.find_element_by_xpath(f"//input[ @class='hasDatepicker' and @name='{name}' ]").get_attribute("value")
-    mytime =  dt.datetime.strptime(mytime, '%d/%m/%Y')
-    mytime =  mytime.strftime('%d de %B de %Y')
+    # mytime =  dt.datetime.strptime(mytime, '%d/%m/%Y')
+    # mytime =  mytime.strftime('%d de %B de %Y')
     return mytime
 
 def select_day(driver,name,year,month,day):
